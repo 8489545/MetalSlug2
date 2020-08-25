@@ -13,10 +13,10 @@ MainScene::~MainScene()
 void MainScene::Init()
 {
 	m_Neogeo = Sprite::Create(L"Painting/Logo/Neogeo.bmp");
-	m_Neogeo->SetPosition(0, 0);
+	m_Neogeo->SetPosition(800 / 2, 600 / 2);
 
 	m_Logo = Sprite::Create(L"Painting/Logo/Logo.bmp");
-	m_Logo->SetPosition(0, 0);
+	m_Logo->SetPosition(800 / 2, 600 / 2);
 	m_Logo->m_Visible = false;
 
 	m_Start = new Animation();

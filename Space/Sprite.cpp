@@ -78,9 +78,9 @@ void Sprite::Render()
 		m_pSp->SetTransform(&(Camera::GetInst()->GetWorld() * GetMatrix()));
 
 	if (m_Visible == false)
-		m_pSp->Draw(m_Texture->GetTexture(), &m_Rect, &D3DXVECTOR3((m_Collision.left - m_Collision.right) / 2, (m_Collision.top - m_Collision.bottom) / 2, 0), 0, D3DCOLOR_ARGB(A, R, G, B));
-	else
-		m_pSp->Draw(m_Texture->GetTexture(), &m_Rect, &D3DXVECTOR3((m_Collision.left - m_Collision.right) / 2, (m_Collision.top - m_Collision.bottom) / 2, 0), 0, D3DCOLOR_ARGB(A, R, G, B));
+		m_pSp->Draw(m_Texture->GetTexture(), &m_Rect, &D3DXVECTOR3(0,0, 0), 0, D3DCOLOR_ARGB(0, R, G, B));
+	else														  
+		m_pSp->Draw(m_Texture->GetTexture(), &m_Rect, &D3DXVECTOR3(0,0, 0), 0, D3DCOLOR_ARGB(A, R, G, B));
 
 	m_pSp->End();
 }
