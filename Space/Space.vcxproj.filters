@@ -93,6 +93,9 @@
     <ClCompile Include="LineMgr.cpp">
       <Filter>Game\Mgrs</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterSelect.cpp">
+      <Filter>Game\Object\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -157,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="LineMgr.h">
       <Filter>Game\Mgrs</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterSelect.h">
+      <Filter>Game\Object\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

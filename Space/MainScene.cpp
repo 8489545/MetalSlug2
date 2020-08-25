@@ -40,18 +40,20 @@ void MainScene::Init()
 	m_Exit->m_Visible = false;
 
 	ObjMgr->AddObject(m_Neogeo, "UI");
-	//ObjMgr->AddObject(m_Logo, "UI");
+	ObjMgr->AddObject(m_Logo, "UI");
 	ObjMgr->AddObject(m_Start, "UI");
 	ObjMgr->AddObject(m_Edit, "UI");
 	ObjMgr->AddObject(m_Exit, "UI");
 
-	m_Start->SetPosition(800 / 2, 600 / 2);
+	m_Start->SetPosition(100,500);
 	m_Edit->SetPosition(350, 500);
 	m_Exit->SetPosition(600, 500);
 
 	m_StartLine = new LineMgr();
 	m_StartLine->Init(1, true);
 	m_StartLine->SetColor(D3DXCOLOR(255, 255, 255, 255));
+
+	m_Phase = 1;
 }
 
 void MainScene::Release()
@@ -65,21 +67,21 @@ void MainScene::Update(float deltaTime, float time)
 		m_Neogeo->A += 1;
 	}	
 
-	if (INPUT->GetButtonDown() || m_Neogeo->A == 255)
+	if (m_Phase == 1 && (INPUT->GetButtonDown() || m_Neogeo->A == 255))
 	{
 		m_DestroyNeogeo = true;
 		m_Neogeo->A = 255;
 		m_Neogeo->SetDestroy(true);
 		INPUT->ButtonDown(false);
+		m_Phase = 2;
 	}
 
-	if (m_DestroyNeogeo == true)
+	if (m_Phase == 2)
 	{
 		m_Logo->m_Visible = true;
 		m_Start->m_Visible = true;
 		m_Edit->m_Visible = true;
 		m_Exit->m_Visible = true;
-
 
 		if (CollisionMgr::GetInst()->MouseWithBoxSize(m_Start))
 		{
@@ -89,14 +91,35 @@ void MainScene::Update(float deltaTime, float time)
 		{
 			m_Start->m_CurrentFrame = 1;
 		}
+		if (CollisionMgr::GetInst()->MouseWithBoxSize(m_Edit))
+		{
+			m_Edit->m_CurrentFrame = 2;
+		}
+		else
+		{
+			m_Edit->m_CurrentFrame = 1;
+		}
+		if (CollisionMgr::GetInst()->MouseWithBoxSize(m_Exit))
+		{
+			m_Exit->m_CurrentFrame = 2;
+			if (INPUT->GetButtonDown())
+			{
+				INPUT->ButtonDown(false);
+				exit(0);
+			}
+		}
+		else
+		{
+			m_Exit->m_CurrentFrame = 1;
+		}
 	}
 
+
+
 	m_Start->SetVertex();
-	m_Edit->SetVertex();
-	m_Exit->SetVertex();
 }
 
 void MainScene::Render()
 {
-	m_StartLine->DrawLine(m_Start->m_Vertex, 2);
+	//m_StartLine->DrawLine(m_Start->m_Vertex, 2);
 }

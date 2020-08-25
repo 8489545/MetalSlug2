@@ -14,6 +14,8 @@ public:
 	MainScene();
 	~MainScene();
 
+
+	int m_Phase;
 	bool m_DestroyNeogeo;
 
 	void Init();

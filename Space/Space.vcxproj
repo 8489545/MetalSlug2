@@ -22,6 +22,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CharacterSelect.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="EffectMgr.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="App.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CharacterSelect.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="EffectMgr.h" />
     <ClInclude Include="Input.h" />
