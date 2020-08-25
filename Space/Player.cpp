@@ -1,36 +1,50 @@
 #include "stdafx.h"
 #include "Player.h"
 
-Player::Player()
+Player::Player(Vec2 Pos)
 {
-	m_Obj = Sprite::Create(L"Painting/Player.png");
-	m_Obj->SetParent(this);
+	m_PlayerTop = new Animation();
+	m_PlayerTop->Init(0.1f, true);
+	m_PlayerTop->AddContinueFrame(L"Painting/Player/Right/Top.bmp", 1, 11);
 
-	SetPosition(100, 100);
+	m_PlayerBottom = new Animation();
+	m_PlayerBottom->Init(0.1f, true);
+	m_PlayerBottom->AddContinueFrame(L"Painting/Player/Right/Bottom.bmp", 1, 11);
+
+	m_PlayerTop->m_Position = Pos;
+
+	m_PlayerDirection = RIGHT;
+
+	m_State = State::IDLE;
+
 }
 
 Player::~Player()
 {
 }
 
+void Player::SetPlayerAni()
+{
+	if (m_PlayerDirection == LEFT)
+	{
+		Dire = L"Left";
+	}
+	else if (m_PlayerDirection == RIGHT)
+	{
+		Dire = L"Right";
+	}
+}
+
 void Player::Update(float deltaTime, float Time)
 {
-	if (INPUT->GetKey('W') == KeyState::PRESS)
-		m_Position.y -= 300 * dt;
-	if (INPUT->GetKey('A') == KeyState::PRESS)
-		m_Position.x -= 300 * dt;
-	if (INPUT->GetKey('S') == KeyState::PRESS)
-		m_Position.y += 300 * dt;
-	if (INPUT->GetKey('D') == KeyState::PRESS)
-		m_Position.x += 300 * dt;
+	SetPlayerAni();
 
-	if (INPUT->GetKey(VK_SPACE) == KeyState::PRESS)
-		Camera::GetInst()->Follow(this);
-	else
-		Camera::GetInst()->Follow(nullptr);
+	m_PlayerTop->Update(deltaTime,Time);
+	m_PlayerBottom->Update(deltaTime, Time);
 }
 
 void Player::Render()
 {
-	m_Obj->Render();
+	m_PlayerTop->Render();
+	m_PlayerBottom->Render();
 }

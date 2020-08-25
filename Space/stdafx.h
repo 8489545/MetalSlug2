@@ -7,6 +7,9 @@ typedef struct D3DXMATRIX Matrix;
 #define gt App::GetInst()->Time
 #define _USE_MATH_DEFINES
 
+constexpr int LEFT = 0;
+constexpr int RIGHT = 1;
+
 template<class T>
 inline void SafeDelete(T*& x);
 
