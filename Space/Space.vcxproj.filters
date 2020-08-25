@@ -25,6 +25,9 @@
     <Filter Include="Game\Object\Scene">
       <UniqueIdentifier>{6a0b488c-024d-464b-b7e5-e43bc432ea1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Object\State">
+      <UniqueIdentifier>{32895505-6d1e-4122-acd1-21614cfad4b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Space.cpp">

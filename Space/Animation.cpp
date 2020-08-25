@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include"Texture.h"
 #include "Animation.h"
 
 Animation::Animation()
@@ -19,9 +20,9 @@ Animation::~Animation()
 {
 }
 
-void Animation::AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame)
+void Animation::AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame,D3DXCOLOR ColorKey)
 {
-	m_Anim = Sprite::Create(fileName.c_str());
+	m_Anim = Sprite::Create(fileName.c_str(),ColorKey);
 	m_Anim->SetParent(this);
 
 	m_FirstFrame = firstFrame;
@@ -76,6 +77,11 @@ void Animation::Render()
 
 	SetRect(&m_Anim->m_Rect, static_cast<int>(m_Size.x / m_LastFrame)* (m_CurrentFrame - 1), 0,
 		static_cast<int>(m_Size.x / m_LastFrame)* m_CurrentFrame, static_cast<int>(m_Size.y));
+
+	if (m_Visible == false)
+		m_Anim->A = 0;
+	else if (m_Visible == true)
+		m_Anim->A = 255;
 
 	m_Anim->Render();
 }

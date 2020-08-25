@@ -1,4 +1,5 @@
 #pragma once
+class Texture;
 class Animation : public Object
 {
 private:
@@ -19,7 +20,7 @@ public:
 	Animation();
 	~Animation();
 
-	void AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame);
+	void AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame, D3DXCOLOR ColorKey = COLORKEY_PINK);
 
 	void Init(float delay, bool play);
 	void Update(float deltaTime, float time);
