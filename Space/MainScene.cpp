@@ -45,7 +45,7 @@ void MainScene::Init()
 	ObjMgr->AddObject(m_Edit, "UI");
 	ObjMgr->AddObject(m_Exit, "UI");
 
-	m_Start->SetPosition(100, 500);
+	m_Start->SetPosition(800 / 2, 600 / 2);
 	m_Edit->SetPosition(350, 500);
 	m_Exit->SetPosition(600, 500);
 
