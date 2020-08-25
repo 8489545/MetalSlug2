@@ -1,9 +1,8 @@
 #pragma once
 class MainScene : public Scene
 {
-	Sprite* m_BG;
-
-	TextMgr* m_Text;
+	Sprite* m_Player;
+	Animation* m_Ani;
 public:
 	MainScene();
 	~MainScene();

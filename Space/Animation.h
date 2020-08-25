@@ -2,11 +2,14 @@
 class Animation : public Object
 {
 private:
-	std::vector<Sprite*> m_Anim;
+	Sprite* m_Anim;
 
 	float m_Delay;
 	bool m_AutoPlay;
 	float m_FrameCount;
+
+	int m_FirstFrame;
+	int m_LastFrame;
 
 public:
 	int m_CurrentFrame;

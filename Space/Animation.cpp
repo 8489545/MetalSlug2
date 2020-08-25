@@ -3,9 +3,11 @@
 
 Animation::Animation()
 	: m_AutoPlay(0)
-	, m_CurrentFrame(0)
+	, m_CurrentFrame(1)
 	, m_Delay(0.f)
 	, m_FrameCount(0.f)
+	, m_FirstFrame(1)
+	, m_LastFrame(1)
 	, A(255)
 	, R(255)
 	, G(255)
@@ -19,18 +21,13 @@ Animation::~Animation()
 
 void Animation::AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame)
 {
-	if (firstFrame < lastFrame)
-	{
-		for (int i = firstFrame; i <= lastFrame; i++)
-		{
-			auto sprite = Sprite::Create(fileName.c_str() + std::to_wstring(i) + L".png");
+	m_Anim = Sprite::Create(fileName.c_str());
+	m_Anim->SetParent(this);
 
-			sprite->SetParent(this);
-			if (sprite)
-				m_Anim.push_back(sprite);
-		}
-	}
+	m_FirstFrame = firstFrame;
+	m_LastFrame = lastFrame;
 }
+
 void Animation::Init(float delay, bool play)
 {
 	m_Delay = delay;
@@ -43,7 +40,7 @@ void Animation::Update(float deltaTime, float time)
 
 	if (m_Destroy)
 	{
-		m_Anim.at(m_CurrentFrame)->SetDestroy(true);
+		SetDestroy(true);
 	}
 
 	if (m_AutoPlay == true)
@@ -54,18 +51,11 @@ void Animation::Update(float deltaTime, float time)
 			m_FrameCount = 0.f;
 		}
 	}
-
-	if (m_CurrentFrame > m_Anim.size() - 1)
+	if (m_CurrentFrame > m_LastFrame)
 	{
-		m_CurrentFrame = 0;
+		m_CurrentFrame = 1;
 	}
-	m_Anim.at(m_CurrentFrame)->A = A;
-	m_Anim.at(m_CurrentFrame)->R = R;
-	m_Anim.at(m_CurrentFrame)->G = G;
-	m_Anim.at(m_CurrentFrame)->B = B;
-
-	m_Anim.at(m_CurrentFrame)->Update(deltaTime, time);
-
+	m_Anim->Update(deltaTime, time);
 }
 
 void Animation::Render()
@@ -83,5 +73,9 @@ void Animation::Render()
 			m_Position.x + m_Size.x / 2, m_Position.y + m_Size.y / 2);
 	}
 
-	m_Anim.at(m_CurrentFrame)->Render();
+
+	SetRect(&m_Anim->m_Rect, static_cast<int>(m_Size.x / m_LastFrame)* (m_CurrentFrame - 1), 0,
+		static_cast<int>(m_Size.x / m_LastFrame)* m_CurrentFrame, static_cast<int>(m_Size.y));
+
+	m_Anim->Render();
 }

@@ -12,16 +12,10 @@ MainScene::~MainScene()
 
 void MainScene::Init()
 {
-	m_BG = Sprite::Create(L"Painting/BG.png");
-	m_BG->SetPosition(1920 / 2, 1080 / 2);
-
-	ObjMgr->AddObject(new Player(), "Player");
-
-	m_Text = new TextMgr();
-	m_Text->Init(32, true, false, "Arial");
-	m_Text->SetColor(255, 255, 255, 255);
-
-	SoundMgr::GetInst()->Play(L"Test.wav", true);
+	m_Ani = new Animation();
+	m_Ani->Init(0.1f, true);
+	m_Ani->AddContinueFrame(L"Painting/Camel/Run.bmp", 1, 11);
+	m_Ani->SetPosition(800 / 2, 600 / 2);
 }
 
 void MainScene::Release()
@@ -30,14 +24,10 @@ void MainScene::Release()
 
 void MainScene::Update(float deltaTime, float time)
 {
+	m_Ani->Update(deltaTime, time);
 }
 
 void MainScene::Render()
 {
-	m_BG->Render();
-
-	Renderer::GetInst()->GetSprite()->Begin(D3DXSPRITE_ALPHABLEND);
-	m_Text->print(std::to_string(INPUT->GetMousePos().x) + " " + std::to_string(INPUT->GetMousePos().y) + " \n" +
-		std::to_string(dt) + " " +std::to_string(gt) , 0, 0);
-	Renderer::GetInst()->GetSprite()->End();
+	m_Ani->Render();
 }
