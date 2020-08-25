@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "MainScene.h"
-#include"Player.h"
+#include"CharacterSelect.h"
 
 MainScene::MainScene()
 {
@@ -13,10 +13,10 @@ MainScene::~MainScene()
 void MainScene::Init()
 {
 	m_Neogeo = Sprite::Create(L"Painting/Logo/Neogeo.bmp");
-	m_Neogeo->SetPosition(800 / 2, 600 / 2);
+	m_Neogeo->SetPosition(0,0);
 
 	m_Logo = Sprite::Create(L"Painting/Logo/Logo.bmp");
-	m_Logo->SetPosition(800 / 2, 600 / 2);
+	m_Logo->SetPosition(0, 0);
 	m_Logo->m_Visible = false;
 
 	m_Start = new Animation();
@@ -39,11 +39,11 @@ void MainScene::Init()
 	m_Edit->m_Visible = false;
 	m_Exit->m_Visible = false;
 
-	ObjMgr->AddObject(m_Neogeo, "UI");
-	ObjMgr->AddObject(m_Logo, "UI");
-	ObjMgr->AddObject(m_Start, "UI");
-	ObjMgr->AddObject(m_Edit, "UI");
-	ObjMgr->AddObject(m_Exit, "UI");
+	ObjMgr->AddObject(m_Neogeo, "Main");
+	ObjMgr->AddObject(m_Logo, "Main");
+	ObjMgr->AddObject(m_Start, "Main");
+	ObjMgr->AddObject(m_Edit, "Main");
+	ObjMgr->AddObject(m_Exit, "Main");
 
 	m_Start->SetPosition(100,500);
 	m_Edit->SetPosition(350, 500);
@@ -86,6 +86,13 @@ void MainScene::Update(float deltaTime, float time)
 		if (CollisionMgr::GetInst()->MouseWithBoxSize(m_Start))
 		{
 			m_Start->m_CurrentFrame = 2;
+			if (INPUT->GetButtonDown())
+			{
+				INPUT->ButtonDown(false);
+				SceneDirector::GetInst()->ChangeScene(new CharacterSelect());
+				ObjMgr->DeleteObject("Main");
+				return;
+			}
 		}
 		else
 		{
