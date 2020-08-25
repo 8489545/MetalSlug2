@@ -8,6 +8,8 @@ class MainScene : public Scene
 	Animation* m_Edit;
 	Animation* m_Exit;
 
+	LineMgr* m_StartLine;
+
 public:
 	MainScene();
 	~MainScene();

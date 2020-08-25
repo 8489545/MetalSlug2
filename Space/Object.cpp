@@ -83,3 +83,13 @@ void Object::Render()
 void Object::OnCollision(Object* other)
 {
 }
+
+void Object::SetVertex()
+{
+	m_Vertex[0].x = m_Collision.left;
+	m_Vertex[0].y = m_Collision.top;
+
+	m_Vertex[1].x = m_Collision.right;
+	m_Vertex[1].y = m_Collision.bottom;
+
+}

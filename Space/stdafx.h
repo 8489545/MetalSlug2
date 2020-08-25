@@ -10,6 +10,7 @@ typedef struct D3DXMATRIX Matrix;
 constexpr int LEFT = 0;
 constexpr int RIGHT = 1;
 
+
 template<class T>
 inline void SafeDelete(T*& x);
 
@@ -43,6 +44,7 @@ inline void SafeDelete(T*& x);
 #include"Sprite.h"
 #include"Animation.h"
 #include"EffectMgr.h"
+#include"LineMgr.h"
 //
 
 template<class T>

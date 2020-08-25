@@ -15,7 +15,7 @@ public:
 
 	bool m_Destroy;
 	RECT m_Collision;
-
+	Vec2 m_Vertex[2];
 	bool m_Visible;
 
 	int m_Layer;
@@ -42,6 +42,7 @@ public:
 	void SetDestroy(bool destroy) { m_Destroy = destroy; }
 	void SetTag(const std::string tag);
 	void SetParent(Object* obj);
+	void SetVertex();
 public:
 	bool GetDestroy() { return m_Destroy; }
 };
