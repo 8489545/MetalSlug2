@@ -29,6 +29,8 @@ public:
 
 	bool m_Decision;
 
+	float m_Timer;
+
 	void PanelUp(int PanelNum);
 	void PanelDown(int PanelNum);
 

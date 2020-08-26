@@ -96,6 +96,9 @@
     <ClCompile Include="CharacterSelect.cpp">
       <Filter>Game\Object\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Stage1.cpp">
+      <Filter>Game\Object\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -162,6 +165,9 @@
       <Filter>Game\Mgrs</Filter>
     </ClInclude>
     <ClInclude Include="CharacterSelect.h">
+      <Filter>Game\Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1.h">
       <Filter>Game\Object\Scene</Filter>
     </ClInclude>
   </ItemGroup>

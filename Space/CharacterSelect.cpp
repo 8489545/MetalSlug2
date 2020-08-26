@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "CharacterSelect.h"
+#include "Stage1.h"
 
 CharacterSelect::CharacterSelect()
 {
@@ -73,6 +74,8 @@ void CharacterSelect::Init()
 	m_Tarma->m_CurrentFrame = 0;
 	m_Fio->m_CurrentFrame = 0;
 
+	m_Timer += dt;
+
 
 	ObjMgr->AddObject(m_Marco, "Character");
 	ObjMgr->AddObject(m_Eri, "Character");
@@ -88,6 +91,7 @@ void CharacterSelect::Init()
 
 void CharacterSelect::Release()
 {
+	ObjMgr->DeleteObject("Character");
 }
 
 void CharacterSelect::PanelUp(int PanelNum)
@@ -193,6 +197,7 @@ void CharacterSelect::Update(float deltaTime, float Time)
 	}
 	if(m_Decision)
 	{
+		m_Timer += dt;
 		if (m_NowSelectCharacter == Marco)
 		{
 			PanelDown(1);
@@ -216,6 +221,12 @@ void CharacterSelect::Update(float deltaTime, float Time)
 			PanelDown(0);
 			PanelDown(1);
 			PanelDown(2);
+		}
+
+		if (m_Timer >= 1.f)
+		{
+			SceneDirector::GetInst()->ChangeScene(new Stage1());
+			return;
 		}
 	}
 	for (int i = 0; i < 4; i++)
