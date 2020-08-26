@@ -37,7 +37,7 @@ void CharacterSelect::Init()
 	m_Title = Sprite::Create(L"Painting/Select/Title.bmp", COLORKEY_WHITE);
 	m_Title->SetPosition(78, 19);
 	m_Title->m_Layer = 3;
-	
+
 
 	ObjMgr->AddObject(m_BG, "Character");
 	ObjMgr->AddObject(m_Title, "Character");

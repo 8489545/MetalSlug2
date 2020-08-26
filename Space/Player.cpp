@@ -4,11 +4,11 @@
 Player::Player(Vec2 Pos)
 {
 	m_PlayerTop = new Animation();
-	m_PlayerTop->Init(0.1f, true);
+	m_PlayerTop->Init(0.1f, true, BigImage);
 	m_PlayerTop->AddContinueFrame(L"Painting/Player/Right/Top.bmp", 1, 11);
 
 	m_PlayerBottom = new Animation();
-	m_PlayerBottom->Init(0.1f, true);
+	m_PlayerBottom->Init(0.1f, true, BigImage);
 	m_PlayerBottom->AddContinueFrame(L"Painting/Player/Right/Bottom.bmp", 1, 11);
 
 	m_PlayerTop->m_Position = Pos;

@@ -22,17 +22,30 @@ Animation::~Animation()
 
 void Animation::AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame,D3DXCOLOR ColorKey)
 {
-	m_Anim = Sprite::Create(fileName.c_str(),ColorKey);
-	m_Anim->SetParent(this);
-
+	if (m_AnimationMode == BigImage)
+	{
+		m_Anim = Sprite::Create(fileName.c_str(), ColorKey);
+		m_Anim->SetParent(this);
+	}
+	else if (m_AnimationMode == MultipleImage)
+	{
+		for (int i = firstFrame; i <= lastFrame; i++)
+		{
+			Sprite* sprite = Sprite::Create(fileName.c_str() + std::to_wstring(i) + L".png", ColorKey);
+			sprite->SetParent(this);
+			if (sprite)
+				m_Anims.push_back(sprite);
+		}
+	}
 	m_FirstFrame = firstFrame;
 	m_LastFrame = lastFrame;
 }
 
-void Animation::Init(float delay, bool play)
+void Animation::Init(float delay, bool play, int Mode)
 {
 	m_Delay = delay;
 	m_AutoPlay = play;
+	m_AnimationMode = Mode;
 }
 
 void Animation::Update(float deltaTime, float time)
@@ -41,7 +54,10 @@ void Animation::Update(float deltaTime, float time)
 
 	if (m_Destroy)
 	{
-		SetDestroy(true);
+		if(m_AnimationMode == BigImage)
+			SetDestroy(true);
+		if (m_AnimationMode == MultipleImage)
+			m_Anims.at(m_CurrentFrame)->SetDestroy(true);
 	}
 
 	if (m_AutoPlay == true)
@@ -56,7 +72,19 @@ void Animation::Update(float deltaTime, float time)
 	{
 		m_CurrentFrame = 1;
 	}
-	m_Anim->Update(deltaTime, time);
+
+	if (m_AnimationMode == MultipleImage)
+	{
+		m_Anims.at(m_CurrentFrame)->A = A;
+		m_Anims.at(m_CurrentFrame)->R = R;
+		m_Anims.at(m_CurrentFrame)->G = G;
+		m_Anims.at(m_CurrentFrame)->B = B;
+	}
+
+	if(m_AnimationMode == BigImage)
+		m_Anim->Update(deltaTime, time);
+	if (m_AnimationMode == MultipleImage)
+		m_Anims.at(m_CurrentFrame)->Update(deltaTime, time);
 }
 
 void Animation::Render()
@@ -74,14 +102,17 @@ void Animation::Render()
 			m_Position.x + m_Size.x / 2, m_Position.y + m_Size.y / 2);
 	}
 
-
-	SetRect(&m_Anim->m_Rect, static_cast<int>(m_Size.x / m_LastFrame)* (m_CurrentFrame - 1), 0,
-		static_cast<int>(m_Size.x / m_LastFrame)* m_CurrentFrame, static_cast<int>(m_Size.y));
+	if (m_AnimationMode == BigImage)
+		SetRect(&m_Anim->m_Rect, static_cast<int>(m_Size.x / m_LastFrame)* (m_CurrentFrame - 1), 0,
+			static_cast<int>(m_Size.x / m_LastFrame)* m_CurrentFrame, static_cast<int>(m_Size.y));
 
 	if (m_Visible == false)
-		m_Anim->A = 0;
+		m_Anim->A = 0; 
 	else if (m_Visible == true)
 		m_Anim->A = 255;
 
-	m_Anim->Render();
+	if (m_AnimationMode == BigImage)
+		m_Anim->Render();
+	if (m_AnimationMode == MultipleImage)
+		m_Anims.at(m_CurrentFrame)->Render();
 }

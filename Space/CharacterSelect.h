@@ -11,6 +11,8 @@ class CharacterSelect : public Scene
 	Sprite* m_Panels[4];
 	Sprite* m_Title;
 	Sprite* m_Player[4];
+
+	Sprite* m_A;
 public:
 	CharacterSelect();
 	~CharacterSelect();

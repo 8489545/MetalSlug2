@@ -5,7 +5,7 @@ EffectMgr::EffectMgr(std::wstring filename, int start, int speed, int end, Vec2 
 {
 	Effect = new Animation();
 	Effect->AddContinueFrame(filename, start, end);
-	Effect->Init(speed, true);
+	Effect->Init(speed, true,MultipleImage);
 	Effect->SetParent(this);
 	Effect->m_Position = Pos;
 

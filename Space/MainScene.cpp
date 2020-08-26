@@ -20,15 +20,15 @@ void MainScene::Init()
 	m_Logo->m_Visible = false;
 
 	m_Start = new Animation();
-	m_Start->Init(0, false);
+	m_Start->Init(0, false,BigImage);
 	m_Start->AddContinueFrame(L"Painting/Button/Start.bmp", 1, 2,COLORKEY_WHITE);
 
 	m_Edit = new Animation();
-	m_Edit->Init(0, false);
+	m_Edit->Init(0, false, BigImage);
 	m_Edit->AddContinueFrame(L"Painting/Button/Edit.bmp", 1, 2, COLORKEY_WHITE);
 
 	m_Exit = new Animation();
-	m_Exit->Init(0, false);
+	m_Exit->Init(0, false, BigImage);
 	m_Exit->AddContinueFrame(L"Painting/Button/Exit.bmp", 1, 2, COLORKEY_WHITE);
 
 
