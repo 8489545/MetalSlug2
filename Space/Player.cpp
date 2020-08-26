@@ -34,7 +34,6 @@ void Player::SetPlayerAni()
 		Dire = L"Right";
 	}
 }
-
 void Player::Update(float deltaTime, float Time)
 {
 	SetPlayerAni();

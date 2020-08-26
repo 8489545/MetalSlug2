@@ -106,10 +106,14 @@ void Animation::Render()
 		SetRect(&m_Anim->m_Rect, static_cast<int>(m_Size.x / m_LastFrame)* (m_CurrentFrame - 1), 0,
 			static_cast<int>(m_Size.x / m_LastFrame)* m_CurrentFrame, static_cast<int>(m_Size.y));
 
-	if (m_Visible == false)
-		m_Anim->A = 0; 
-	else if (m_Visible == true)
-		m_Anim->A = 255;
+	
+	if (m_AnimationMode == BigImage)
+	{
+		if (m_Visible == false)
+			m_Anim->A = 0;
+		else if (m_Visible == true)
+			m_Anim->A = 255;
+	}
 
 	if (m_AnimationMode == BigImage)
 		m_Anim->Render();
