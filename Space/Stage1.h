@@ -2,6 +2,7 @@
 class Stage1 : public Scene
 {
 	Sprite* m_Map;
+	Sprite* m_CMap;
 public:
 	Stage1() {};
 	~Stage1() {};

@@ -39,19 +39,19 @@ void Camera::Update(float deltaTime, float time)
 
 	if (INPUT->GetKey('D') == KeyState::PRESS && m_Position.x < m_MaxMapSize.x - App::GetInst()->m_Width)
 	{
-		m_Position.x += 1100 * dt;
+		m_Position.x += 1000 * dt;
 	}
 	if (INPUT->GetKey('A') == KeyState::PRESS && m_Position.x > m_MinMapSize.x)
 	{
-		m_Position.x -= 500 * dt;
+		m_Position.x -= 1000 * dt;
 	}
-	if (INPUT->GetKey('W') == KeyState::PRESS && m_Position.y < m_MaxMapSize.y)
-	{
-		m_Position.y += 500 * dt;
-	}
-	if (INPUT->GetKey('S') == KeyState::PRESS && m_Position.y > m_MinMapSize.y - App::GetInst()->m_Height)
+	if (INPUT->GetKey('W') == KeyState::PRESS && m_Position.y < m_MaxMapSize.y - App::GetInst()->m_Height)
 	{
 		m_Position.y -= 500 * dt;
+	}
+	if (INPUT->GetKey('S') == KeyState::PRESS && m_Position.y > m_MinMapSize.y)
+	{
+		m_Position.y += 500 * dt;
 	}
 
 	if (m_Rotation >= 360)
