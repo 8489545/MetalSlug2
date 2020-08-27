@@ -1,6 +1,7 @@
 #pragma once
 class Stage1 : public Scene
 {
+	Sprite* m_Map;
 public:
 	Stage1() {};
 	~Stage1() {};
