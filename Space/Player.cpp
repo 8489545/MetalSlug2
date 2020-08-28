@@ -40,13 +40,17 @@ void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstri
 	Top = new Animation();
 	Top->Init(0.1f, true, BigImage);
 	Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_SKY);
+	Top->SetScale(2.f, 2.f);
 
 	Bottom = new Animation();
 	Bottom->Init(0.1f, true, BigImage);
 	Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_SKY);
+	Bottom->SetScale(2.f, 2.f);
 
-	m_Top = Top;
-	m_Bottom = Bottom;
+	if(Top)
+		m_Top = Top;
+	if(Bottom)
+		m_Bottom = Bottom;
 }
 
 void Player::ChangeImage(std::wstring body, int first, int last)
