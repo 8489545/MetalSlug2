@@ -1,21 +1,25 @@
 #include "stdafx.h"
 #include "Player.h"
-#include"Texture.h"
-#include"PlayerState.h"
+
 
 Player::Player(Vec2 Pos)
 {
+	m_Top = nullptr;
+	m_Bottom = nullptr;
+
 	m_Player = Sprite::Create(L"Painting/Player.png");
 	m_Player->SetParent(this);
 
 	SetPosition(800 / 2, 600 / 2);
-	
 
 	m_isGround = false;
 	m_WeightY = 0;
 	m_vY = 0.f;
 
 	m_Speed = 150.f;
+
+	m_State = new PlayerState();
+	m_State->SetState(this, State::IDLE);
 }
 
 Player::~Player()
@@ -25,18 +29,24 @@ Player::~Player()
 
 void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstring bottom, int bottomfirst, int bottomlast)
 {
-	if (m_Top)
+	/*if (m_Top)
 		ObjMgr->RemoveObject(m_Top);
 	if (m_Bottom)
-		ObjMgr->RemoveObject(m_Bottom);
+		ObjMgr->RemoveObject(m_Bottom);*/
 
-	m_Top = new Animation();
-	m_Top->Init(0.1f, true, BigImage);
-	m_Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_SKY);
+	Animation* Top;
+	Animation* Bottom;
 
-	m_Bottom = new Animation();
-	m_Bottom->Init(0.1f, true, BigImage);
-	m_Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_SKY);
+	Top = new Animation();
+	Top->Init(0.1f, true, BigImage);
+	Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_SKY);
+
+	Bottom = new Animation();
+	Bottom->Init(0.1f, true, BigImage);
+	Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_SKY);
+
+	m_Top = Top;
+	m_Bottom = Bottom;
 }
 
 void Player::ChangeImage(std::wstring body, int first, int last)
@@ -51,17 +61,41 @@ void Player::ChangeImage(std::wstring body, int first, int last)
 
 void Player::Update(float deltaTime, float Time)
 {
+	SetImagePos();
 	if (!m_isGround)
 	{
 		m_vY += 9.8f * dt;
 		m_Position.y += m_vY;
 	}
 	Move();
+	if (m_Top)
+		m_Top->Update(deltaTime,Time);
+	if (m_Bottom)
+		m_Bottom->Update(deltaTime, Time);
+	if (m_Body)
+		m_Body->Update(deltaTime, Time);
+
+	m_State->Update();
 }
 
 void Player::Render()
 {
+	if (m_Top)
+		m_Top->Render();
+	if (m_Bottom)
+		m_Bottom->Render();
+	if (m_Body)
+		m_Body->Render();
+
 	m_Player->Render();
+}
+
+void Player::SetImagePos()
+{
+	if (m_Top)
+		m_Top->SetPosition(m_Position.x, m_Position.y);
+	if (m_Bottom)
+		m_Bottom->SetPosition(m_Position.x, m_Position.y);
 }
 
 void Player::Move()

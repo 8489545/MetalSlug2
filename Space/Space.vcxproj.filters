@@ -28,6 +28,9 @@
     <Filter Include="Game\Object\State">
       <UniqueIdentifier>{32895505-6d1e-4122-acd1-21614cfad4b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Object\Object">
+      <UniqueIdentifier>{6748b3cd-5d01-454c-81bf-c83ec9f499a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Space.cpp">
@@ -87,9 +90,6 @@
     <ClCompile Include="MainScene.cpp">
       <Filter>Game\Object\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Game\Object\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="LineMgr.cpp">
       <Filter>Game\Mgrs</Filter>
     </ClCompile>
@@ -107,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="StateIdle.cpp">
       <Filter>Game\Object\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Game\Object\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,9 +170,6 @@
     <ClInclude Include="MainScene.h">
       <Filter>Game\Object\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Game\Object\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="LineMgr.h">
       <Filter>Game\Mgrs</Filter>
     </ClInclude>
@@ -187,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="StateIdle.h">
       <Filter>Game\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Game\Object\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

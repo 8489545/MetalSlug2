@@ -1,16 +1,4 @@
 #pragma once
-enum class State
-{
-	IDLE,
-	SHOT,
-	JUMP,
-	RUN,
-	BOMB,
-	DOWN,
-	UP,
-	DEATH,
-	NONE
-};
 
 class Player : public Object
 {
@@ -19,9 +7,12 @@ class Player : public Object
 	Animation* m_Body;
 
 	Sprite* m_Player;
+
 public:
 	Player(Vec2 Pos);
 	~Player();
+
+	PlayerState* m_State;
 
 	bool m_isGround;
 
@@ -35,6 +26,8 @@ public:
 
 	void Update(float deltaTime,float Time);
 	void Render();
+
+	void SetImagePos();
 
 	void Move();
 };
