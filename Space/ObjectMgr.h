@@ -27,6 +27,7 @@ public:
 	void Update(float deltaTime, float time);
 	void Render();
 
+	Object* FindObject(const std::string tag);
 
 
 

@@ -81,6 +81,17 @@ void ObjectMgr::Render()
 	}
 }
 
+Object* ObjectMgr::FindObject(const std::string tag)
+{
+	for (auto& iter : m_Objects)
+	{
+		if (iter->m_Tag == tag)
+		{
+			return iter;
+		}
+	}
+}
+
 void ObjectMgr::AddObject(Object* obj, const std::string tag)
 {
 	m_Objects.push_back(obj);

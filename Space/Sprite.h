@@ -14,13 +14,12 @@ class Sprite : public Object
 public:
 	Sprite();
 	~Sprite();
-
 	RECT m_Rect;
 public:
 	bool Init(std::wstring fileName, D3DCOLOR ColorKey);
 
 public:
-
+	Texture* GetSpriteTexture() { return m_Texture; }
 	static Sprite* Create(std::wstring fileName, D3DCOLOR ColorKey = COLORKEY_PINK);
 	void Render() override;
 
