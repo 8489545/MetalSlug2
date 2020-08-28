@@ -13,6 +13,11 @@ public:
 
 	bool m_isGround;
 
+	int m_WeightY;
+	float m_vY;
+
+	float m_Speed;
+
 	void Update(float deltaTime,float Time);
 	void Render();
 };
