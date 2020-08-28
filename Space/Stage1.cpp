@@ -8,6 +8,7 @@ void Stage1::Init()
 	m_Map->SetPosition(0, 0);
 	m_CMap = Sprite::Create(L"Painting/Map/CMap1.bmp",COLORKEY_WHITE);
 	m_CMap->SetPosition(0, 0);
+	m_CMap->m_Visible = false;
 
 	ObjMgr->AddObject(m_CMap, "CMap");
 

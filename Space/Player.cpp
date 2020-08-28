@@ -15,8 +15,11 @@ Player::Player(Vec2 Pos)
 	m_isGround = false;
 	m_WeightY = 0;
 	m_vY = 0.f;
+	m_Player->m_Visible = false;
 
 	m_Speed = 150.f;
+
+	m_Dire = RIGHT;
 
 	m_State = new PlayerState();
 	m_State->SetState(this, State::IDLE);
@@ -40,12 +43,12 @@ void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstri
 	Top = new Animation();
 	Top->Init(0.1f, true, BigImage);
 	Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_SKY);
-	Top->SetScale(2.f, 2.f);
+	Top->SetScale(2.f * (float)m_Dire, 2.f);
 
 	Bottom = new Animation();
 	Bottom->Init(0.1f, true, BigImage);
 	Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_SKY);
-	Bottom->SetScale(2.f, 2.f);
+	Bottom->SetScale(2.f * (float)m_Dire, 2.f);
 
 	if(Top)
 		m_Top = Top;

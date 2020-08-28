@@ -15,6 +15,7 @@ public:
 	PlayerState* m_State;
 
 	bool m_isGround;
+	int m_Dire;
 
 	int m_WeightY;
 	float m_vY;
