@@ -10,15 +10,7 @@ Player::Player(Vec2 Pos)
 	SetPosition(800 / 2, 600 / 2);
 
 
-	D3DLOCKED_RECT LockRect;
-	ZeroMemory(&LockRect, sizeof(LockRect));
-	((Sprite*)ObjMgr->FindObject("CMap"))->GetSpriteTexture()->GetTexture()->LockRect(0, &LockRect, 0, 0);
-
-	m_MapColor = (DWORD*)LockRect.pBits;
-	MapPitch = LockRect.Pitch;
-	int width = ((Sprite*)ObjMgr->FindObject("CMap"))->m_Size.x;
-	MapWidth = width;
-	((Sprite*)ObjMgr->FindObject("CMap"))->GetSpriteTexture()->GetTexture()->UnlockRect(0);
+	
 
 	m_isGround = false;
 	m_WeightY = 0;
@@ -40,8 +32,8 @@ void Player::Update(float deltaTime, float Time)
 		m_Position.y += m_vY;
 	}
 
-	int pos = (int)(m_Position.y + m_Size.y / 2) * MapPitch / 4 + (int)(m_Position.x + m_Size.x / 2);
-	D3DXCOLOR color = m_MapColor[pos];
+	int pos = (int)(m_Position.y + m_Size.y / 2) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)(m_Position.x + m_Size.x / 2);
+	D3DXCOLOR color = Game::GetInst()->GetMapColor(pos);
 
 	if (color.r == 1.f && color.g == 0 && color.b == 1.f)
 	{
@@ -54,8 +46,8 @@ void Player::Update(float deltaTime, float Time)
 	}
 	if (INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
 	{
-		int lpos = (int)((m_Position.y - m_WeightY) + m_Size.y / 2) * MapPitch / 4 + (int)((m_Position.x - 1) + m_Size.x / 2);
-		D3DXCOLOR lcolor = m_MapColor[lpos];
+		int lpos = (int)((m_Position.y - m_WeightY) + m_Size.y / 2) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)((m_Position.x - 1) + m_Size.x / 2);
+		D3DXCOLOR lcolor = Game::GetInst()->GetMapColor(lpos);
 
 		if (lcolor.r == 0.f && lcolor.g == 0 && lcolor.b == 0.f)
 		{
@@ -72,8 +64,8 @@ void Player::Update(float deltaTime, float Time)
 	}
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS)
 	{
-		int rpos = (int)((m_Position.y - m_WeightY) + m_Size.y / 2) * MapPitch / 4 + (int)((m_Position.x + 1) + m_Size.x / 2);
-		D3DXCOLOR rcolor = m_MapColor[rpos];
+		int rpos = (int)((m_Position.y - m_WeightY) + m_Size.y / 2) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)((m_Position.x + 1) + m_Size.x / 2);
+		D3DXCOLOR rcolor = Game::GetInst()->GetMapColor(rpos);
 
 		if (rcolor.r == 0.f && rcolor.g == 0 && rcolor.b == 0.f)
 		{

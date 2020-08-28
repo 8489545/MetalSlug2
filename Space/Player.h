@@ -6,11 +6,6 @@ public:
 	Player(Vec2 Pos);
 	~Player();
 
-	DWORD* m_MapColor;
-
-	int MapWidth;
-	INT MapPitch;
-
 	bool m_isGround;
 
 	int m_WeightY;
