@@ -29,10 +29,10 @@ Player::~Player()
 
 void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstring bottom, int bottomfirst, int bottomlast)
 {
-	/*if (m_Top)
+	if (m_Top)
 		ObjMgr->RemoveObject(m_Top);
 	if (m_Bottom)
-		ObjMgr->RemoveObject(m_Bottom);*/
+		ObjMgr->RemoveObject(m_Bottom);
 
 	Animation* Top;
 	Animation* Bottom;
@@ -65,6 +65,14 @@ void Player::ChangeImage(std::wstring body, int first, int last)
 
 void Player::Update(float deltaTime, float Time)
 {
+	if (INPUT->GetKey('V') == KeyState::DOWN)
+	{
+		if (m_Player->m_Visible)
+			m_Player->m_Visible = false;
+		else
+			m_Player->m_Visible = true;
+	}
+
 	SetImagePos();
 	if (!m_isGround)
 	{
