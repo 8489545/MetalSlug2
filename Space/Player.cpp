@@ -17,7 +17,7 @@ Player::Player(Vec2 Pos)
 	m_vY = 0.f;
 	m_Player->m_Visible = false;
 
-	m_Speed = 150.f;
+	m_Speed = 300.f;
 
 	m_Dire = RIGHT;
 
