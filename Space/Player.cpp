@@ -87,7 +87,7 @@ void Player::Render()
 	if (m_Top)
 		m_Top->Render();
 	if (m_Bottom)
-		m_Bottom->Render();
+		m_Bottom->Render(); 
 	if (m_Body)
 		m_Body->Render();
 
@@ -97,9 +97,11 @@ void Player::Render()
 void Player::SetImagePos()
 {
 	if (m_Top)
-		m_Top->SetPosition(m_Position.x, m_Position.y);
+		m_Top->SetPosition(m_Position.x - m_Top->m_Size.x / 2 - m_Size.x, m_Position.y - m_Top->m_Size.y / 2);
 	if (m_Bottom)
-		m_Bottom->SetPosition(m_Position.x, m_Position.y);
+		m_Bottom->SetPosition(m_Position.x - m_Bottom->m_Size.x / 2 - m_Size.x, m_Position.y - m_Bottom->m_Size.y / 2);
+	if (m_Body)
+		m_Body->SetPosition(m_Position.x - m_Body->m_Size.x / 2 - m_Size.x, m_Position.y + m_Body->m_Size.y / 2 + m_Size.y);
 }
 
 void Player::Move()

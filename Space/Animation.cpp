@@ -89,6 +89,11 @@ void Animation::Update(float deltaTime, float time)
 
 void Animation::Render()
 {
+	if (m_AnimationMode == BigImage)
+		m_Anim->Render();
+	if (m_AnimationMode == MultipleImage)
+		m_Anims.at(m_CurrentFrame)->Render();
+
 	if (m_Parent)
 	{
 		SetRect(&m_Parent->m_Collision, m_Parent->m_Position.x - m_Size.x / 2, m_Parent->m_Position.y - m_Size.y / 2,
@@ -101,22 +106,17 @@ void Animation::Render()
 		SetRect(&m_Collision, m_Position.x - m_Size.x / 2, m_Position.y - m_Size.y / 2,
 			m_Position.x + m_Size.x / 2, m_Position.y + m_Size.y / 2);
 	}
-
-	if (m_AnimationMode == BigImage)
-		SetRect(&m_Anim->m_Rect, static_cast<int>(m_Size.x / m_LastFrame)* (m_CurrentFrame - 1), 0,
-			static_cast<int>(m_Size.x / m_LastFrame)* m_CurrentFrame, static_cast<int>(m_Size.y));
-
 	
 	if (m_AnimationMode == BigImage)
 	{
+		SetRect(&m_Anim->m_Rect, static_cast<int>(m_Size.x / m_LastFrame)* (m_CurrentFrame - 1), 0,
+			static_cast<int>(m_Size.x / m_LastFrame)* m_CurrentFrame, static_cast<int>(m_Size.y));
+
+		m_Size.x /= m_LastFrame;
+
 		if (m_Visible == false)
 			m_Anim->A = 0;
 		else if (m_Visible == true)
 			m_Anim->A = 255;
 	}
-
-	if (m_AnimationMode == BigImage)
-		m_Anim->Render();
-	if (m_AnimationMode == MultipleImage)
-		m_Anims.at(m_CurrentFrame)->Render();
 }
