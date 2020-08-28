@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Player.h"
 #include"Texture.h"
+#include"PlayerState.h"
 
 Player::Player(Vec2 Pos)
 {
@@ -8,8 +9,6 @@ Player::Player(Vec2 Pos)
 	m_Player->SetParent(this);
 
 	SetPosition(800 / 2, 600 / 2);
-
-
 	
 
 	m_isGround = false;
@@ -24,6 +23,32 @@ Player::~Player()
 }
 
 
+void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstring bottom, int bottomfirst, int bottomlast)
+{
+	if (m_Top)
+		ObjMgr->RemoveObject(m_Top);
+	if (m_Bottom)
+		ObjMgr->RemoveObject(m_Bottom);
+
+	m_Top = new Animation();
+	m_Top->Init(0.1f, true, BigImage);
+	m_Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_SKY);
+
+	m_Bottom = new Animation();
+	m_Bottom->Init(0.1f, true, BigImage);
+	m_Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_SKY);
+}
+
+void Player::ChangeImage(std::wstring body, int first, int last)
+{
+	if (m_Body)
+		ObjMgr->RemoveObject(m_Body);
+
+	m_Body = new Animation();
+	m_Body->Init(0.1f, true, BigImage);
+	m_Body->AddContinueFrame(body, first, last, COLORKEY_SKY);
+}
+
 void Player::Update(float deltaTime, float Time)
 {
 	if (!m_isGround)
@@ -31,11 +56,19 @@ void Player::Update(float deltaTime, float Time)
 		m_vY += 9.8f * dt;
 		m_Position.y += m_vY;
 	}
+	Move();
+}
 
+void Player::Render()
+{
+	m_Player->Render();
+}
+
+void Player::Move()
+{
 	int pos = (int)(m_Position.y + m_Size.y / 2) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)(m_Position.x + m_Size.x / 2);
 	D3DXCOLOR color = Game::GetInst()->GetMapColor(pos);
 
-	printf("%d \n", m_WeightY);
 	if (color.r == 1.f && color.g == 0 && color.b == 1.f)
 	{
 		m_isGround = true;
@@ -77,9 +110,4 @@ void Player::Update(float deltaTime, float Time)
 			m_WeightY++;
 		}
 	}
-}
-
-void Player::Render()
-{
-	m_Player->Render();
 }

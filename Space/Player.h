@@ -1,6 +1,23 @@
 #pragma once
+enum class State
+{
+	IDLE,
+	SHOT,
+	JUMP,
+	RUN,
+	BOMB,
+	DOWN,
+	UP,
+	DEATH,
+	NONE
+};
+
 class Player : public Object
 {
+	Animation* m_Top;
+	Animation* m_Bottom;
+	Animation* m_Body;
+
 	Sprite* m_Player;
 public:
 	Player(Vec2 Pos);
@@ -13,7 +30,12 @@ public:
 
 	float m_Speed;
 
+	void ChangeImage(std::wstring top,int topfirst,int toplast, std::wstring bottom, int bottomfirst,int bottomlast);
+	void ChangeImage(std::wstring body,int first,int last);
+
 	void Update(float deltaTime,float Time);
 	void Render();
+
+	void Move();
 };
 

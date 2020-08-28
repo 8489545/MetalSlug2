@@ -102,6 +102,12 @@
     <ClCompile Include="Game.cpp">
       <Filter>Game\Mgrs</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerState.cpp">
+      <Filter>Game\Object\State</Filter>
+    </ClCompile>
+    <ClCompile Include="StateIdle.cpp">
+      <Filter>Game\Object\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -175,6 +181,12 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Game\Mgrs</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>Game\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="StateIdle.h">
+      <Filter>Game\Object\State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
