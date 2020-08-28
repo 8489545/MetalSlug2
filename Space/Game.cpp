@@ -4,7 +4,6 @@
 
 Game::Game()
 {
-	m_CollisionMap = nullptr;
 	ZeroMemory(&m_CollisionMapRect, sizeof(m_CollisionMapRect));
 }
 
