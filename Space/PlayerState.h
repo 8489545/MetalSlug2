@@ -23,7 +23,7 @@ public:
 
 	virtual void Init(Player* player);
 	virtual void SetState(Player* player,State state);
-	virtual void Update();
+	virtual void Update(Player* player);
 
 	static StateIdle* m_Idle;
 };

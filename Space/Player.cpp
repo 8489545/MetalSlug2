@@ -42,13 +42,15 @@ void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstri
 
 	Top = new Animation();
 	Top->Init(0.1f, true, BigImage);
-	Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_SKY);
-	Top->SetScale(2.f * (float)m_Dire, 2.f);
+	Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_PINK);
+	Top->SetScale(2.f, 2.f);
+	Top->SetPosition(-1000, -1000);
 
 	Bottom = new Animation();
 	Bottom->Init(0.1f, true, BigImage);
-	Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_SKY);
-	Bottom->SetScale(2.f * (float)m_Dire, 2.f);
+	Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_PINK);
+	Bottom->SetScale(2.f, 2.f);
+	Bottom->SetPosition(-1000, -1000);
 
 	if(Top)
 		m_Top = Top;
@@ -63,7 +65,7 @@ void Player::ChangeImage(std::wstring body, int first, int last)
 
 	m_Body = new Animation();
 	m_Body->Init(0.1f, true, BigImage);
-	m_Body->AddContinueFrame(body, first, last, COLORKEY_SKY);
+	m_Body->AddContinueFrame(body, first, last, COLORKEY_PINK);
 }
 
 void Player::Update(float deltaTime, float Time)
@@ -75,26 +77,28 @@ void Player::Update(float deltaTime, float Time)
 		else
 			m_Player->m_Visible = true;
 	}
-
-	SetImagePos();
 	if (!m_isGround)
 	{
 		m_vY += 9.8f * dt;
 		m_Position.y += m_vY;
 	}
+
 	Move();
+
+	SetImagePos();
 	if (m_Top)
-		m_Top->Update(deltaTime,Time);
+		m_Top->Update(deltaTime, Time);
 	if (m_Bottom)
 		m_Bottom->Update(deltaTime, Time);
 	if (m_Body)
 		m_Body->Update(deltaTime, Time);
-
-	m_State->Update();
+	Camera::GetInst()->Follow(this);
+	m_State->Update(this);
 }
 
 void Player::Render()
 {
+
 	if (m_Top)
 		m_Top->Render();
 	if (m_Bottom)
@@ -129,11 +133,16 @@ void Player::Move()
 	{
 		m_isGround = false;
 	}
+	if (INPUT->GetKey(VK_LEFT) == KeyState::DOWN)
+		m_Dire = LEFT;
+	if (INPUT->GetKey(VK_RIGHT) == KeyState::DOWN)
+		m_Dire = RIGHT;
 	if (INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
 	{
 		int lpos = (int)((m_Position.y - m_WeightY - 1) + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)((m_Position.x - 1) + m_Size.x / 2);
 		D3DXCOLOR lcolor = Game::GetInst()->GetMapColor(lpos);
 
+		
 		if (lcolor.r == 0.f && lcolor.g == 0 && lcolor.b == 0.f)
 		{
 			m_Position.x -= m_Speed * dt;

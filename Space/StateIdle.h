@@ -7,6 +7,6 @@ public:
 
 	void Init(Player* player);
 	void SetState(Player* player,State state);
-	void Update();
+	void Update(Player* player);
 };
 

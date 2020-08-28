@@ -23,6 +23,6 @@ void PlayerState::SetState(Player* player, State state)
 	}
 }
 
-void PlayerState::Update()
+void PlayerState::Update(Player* player)
 {
 }

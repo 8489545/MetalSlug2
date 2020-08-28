@@ -111,6 +111,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Game\Object\Object</Filter>
     </ClCompile>
+    <ClCompile Include="StateRun.cpp">
+      <Filter>Game\Object\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Game\Object\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="StateRun.h">
+      <Filter>Game\Object\State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
