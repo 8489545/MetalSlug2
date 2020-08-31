@@ -15,10 +15,13 @@ public:
 	PlayerState* m_State;
 	std::wstring m_Weapon;
 
+	float m_JumpTime;
+	float m_JumpPower;
+	float m_JumpAccel;
+	Vec2 Pos;
+
 	bool m_isGround;
 	int m_Dire;
-
-	int m_WeightY;
 	float m_vY;
 
 	float m_Speed;
@@ -32,5 +35,7 @@ public:
 	void SetImagePos();
 
 	void Move();
+	void Jump();
+	void Gravity();
 };
 

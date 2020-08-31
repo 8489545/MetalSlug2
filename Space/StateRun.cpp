@@ -18,15 +18,16 @@ void StateRun::Init(Player* player)
 		player->ChangeImage(L"Painting/Player/Left/Top/" + player->m_Weapon + L"Run.bmp", 0, 12, L"Painting/Player/Left/Bottom/Run.bmp", 0, 12);
 }
 
-void StateRun::SetState(Player* player, State state)
+void StateRun::SetState(Player* player)
 {
 }
 
 void StateRun::Update(Player* player)
 {
+	player->Move();
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::UP || INPUT->GetKey(VK_LEFT) == KeyState::UP)
 	{
-		player->m_State =PlayerState::m_Idle;
+		player->m_State = PlayerState::m_Idle;
 		player->m_State->Init(player);
 	}
 }

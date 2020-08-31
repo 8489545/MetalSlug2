@@ -6,7 +6,7 @@ public:
 	~StateIdle();
 
 	void Init(Player* player);
-	void SetState(Player* player,State state);
+	void SetState(Player* player);
 	void Update(Player* player);
 };
 

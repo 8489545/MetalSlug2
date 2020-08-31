@@ -114,6 +114,9 @@
     <ClCompile Include="StateRun.cpp">
       <Filter>Game\Object\State</Filter>
     </ClCompile>
+    <ClCompile Include="StateJump.cpp">
+      <Filter>Game\Object\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -195,6 +198,9 @@
       <Filter>Game\Object\Object</Filter>
     </ClInclude>
     <ClInclude Include="StateRun.h">
+      <Filter>Game\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="StateJump.h">
       <Filter>Game\Object\State</Filter>
     </ClInclude>
   </ItemGroup>

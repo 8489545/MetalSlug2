@@ -90,6 +90,7 @@ Object* ObjectMgr::FindObject(const std::string tag)
 			return iter;
 		}
 	}
+	return nullptr;
 }
 
 void ObjectMgr::AddObject(Object* obj, const std::string tag)

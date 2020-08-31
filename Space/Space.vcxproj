@@ -42,6 +42,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="StateIdle.cpp" />
+    <ClCompile Include="StateJump.cpp" />
     <ClCompile Include="StateRun.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -73,6 +74,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Stage1.h" />
     <ClInclude Include="StateIdle.h" />
+    <ClInclude Include="StateJump.h" />
     <ClInclude Include="StateRun.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TextMgr.h" />

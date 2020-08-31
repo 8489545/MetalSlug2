@@ -1,18 +1,9 @@
 #pragma once
-enum class State
-{
-	IDLE,
-	SHOT,
-	JUMP,
-	RUN,
-	BOMB,
-	DOWN,
-	UP,
-	DEATH,
-	NONE
-};
+
 class StateIdle;
 class StateRun;
+class StateJump;
+
 class PlayerState
 {
 public:
@@ -21,10 +12,10 @@ public:
 
 
 	virtual void Init(Player* player);
-	virtual void SetState(Player* player,State state);
+	virtual void SetState(Player* player);
 	virtual void Update(Player* player);
 
 	static StateIdle* m_Idle;
 	static StateRun* m_Run;
+	static StateJump* m_Jump;
 };
-
