@@ -3,6 +3,9 @@
 #include"StateIdle.h"
 #include"StateRun.h"
 
+StateIdle* PlayerState::m_Idle = new StateIdle();
+StateRun* PlayerState::m_Run = new StateRun();
+
 PlayerState::PlayerState()
 {
 }
@@ -19,7 +22,7 @@ void PlayerState::SetState(Player* player, State state)
 {
 	if (state == State::IDLE)
 	{
-		//player->m_State = m_Idle;
+		player->m_State = m_Idle;
 		player->m_State->Init(player);
 	}
 }

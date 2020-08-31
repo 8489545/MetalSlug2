@@ -11,8 +11,8 @@ enum class State
 	DEATH,
 	NONE
 };
-
-class Player;
+class StateIdle;
+class StateRun;
 class PlayerState
 {
 public:
@@ -23,5 +23,8 @@ public:
 	virtual void Init(Player* player);
 	virtual void SetState(Player* player,State state);
 	virtual void Update(Player* player);
+
+	static StateIdle* m_Idle;
+	static StateRun* m_Run;
 };
 
