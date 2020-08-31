@@ -143,10 +143,10 @@ void Player::Move()
 		D3DXCOLOR lcolor = Game::GetInst()->GetMapColor(lpos);
 
 		
-		if (lcolor.r == 0.f && lcolor.g == 0 && lcolor.b == 0.f)
+		if ((lcolor.r == 0.f && lcolor.g == 0 && lcolor.b == 0.f))
 		{
 			m_Position.x -= m_Speed * dt;
-			m_Position.y -= m_WeightY;
+			m_Position.y -= m_WeightY * m_Speed / 2 * dt;
 			m_WeightY = 0;
 		}
 		else
@@ -159,10 +159,10 @@ void Player::Move()
 		int rpos = (int)((m_Position.y - m_WeightY - 1) + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)((m_Position.x + 1) + m_Size.x / 2);
 		D3DXCOLOR rcolor = Game::GetInst()->GetMapColor(rpos);
 
-		if (rcolor.r == 0.f && rcolor.g == 0 && rcolor.b == 0.f)
+		if ((rcolor.r == 0.f && rcolor.g == 0 && rcolor.b == 0.f))
 		{
 			m_Position.x += m_Speed * dt;
-			m_Position.y -= m_WeightY;
+			m_Position.y -= m_WeightY * m_Speed / 2 * dt;
 			m_WeightY = 0;
 		}
 		else
