@@ -20,7 +20,7 @@ public:
 	virtual ~PlayerState();
 
 
-	virtual void Init(Player* player);
+	virtual void Init(Player* player,std::wstring weapon = L"");
 	virtual void SetState(Player* player,State state);
 	virtual void Update(Player* player);
 

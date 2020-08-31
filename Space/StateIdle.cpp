@@ -9,12 +9,12 @@ StateIdle::~StateIdle()
 {
 }
 
-void StateIdle::Init(Player* player)
+void StateIdle::Init(Player* player, std::wstring weapon)
 {
 	if(player->m_Dire == RIGHT)
-		player->ChangeImage(L"Painting/Player/Right/Top/Stand.bmp", 0, 4, L"Painting/Player/Right/Bottom/Stand.bmp", 0, 1);
+		player->ChangeImage(L"Painting/Player/Right/Top/" + weapon + L"Stand.bmp", 0, 4, L"Painting/Player/Right/Bottom/Stand.bmp", 0, 1);
 	else if (player->m_Dire == LEFT)
-		player->ChangeImage(L"Painting/Player/Left/Top/Stand.bmp", 0, 4, L"Painting/Player/Left/Bottom/Stand.bmp", 0, 1);
+		player->ChangeImage(L"Painting/Player/Left/Top/" + weapon + L"Stand.bmp", 0, 4, L"Painting/Player/Left/Bottom/Stand.bmp", 0, 1);
 }
 
 void StateIdle::SetState(Player* player,State state)

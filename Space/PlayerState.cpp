@@ -14,7 +14,7 @@ PlayerState::~PlayerState()
 {
 }
 
-void PlayerState::Init(Player* player)
+void PlayerState::Init(Player* player, std::wstring weapon)
 {
 }
 
