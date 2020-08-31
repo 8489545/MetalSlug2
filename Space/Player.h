@@ -1,5 +1,5 @@
 #pragma once
-
+class PlayerState;
 class Player : public Object
 {
 	Animation* m_Top;

@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "StateIdle.h"
-#include"StateRun.h"
 
 StateIdle::StateIdle()
 {
@@ -26,8 +25,7 @@ void StateIdle::Update(Player* player)
 {
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS || INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
 	{
-		player->m_State = new StateRun();
+		//player->m_State = new StateRun();
 		player->m_State->Init(player);
-		delete this;
 	}
 }

@@ -26,8 +26,7 @@ void StateRun::Update(Player* player)
 {
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::UP || INPUT->GetKey(VK_LEFT) == KeyState::UP)
 	{
-		player->m_State = new StateIdle();
+		//player->m_State = new StateIdle();
 		player->m_State->Init(player);
-		delete this;
 	}
 }

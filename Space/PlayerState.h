@@ -13,7 +13,6 @@ enum class State
 };
 
 class Player;
-class StateIdle;
 class PlayerState
 {
 public:
@@ -24,7 +23,5 @@ public:
 	virtual void Init(Player* player);
 	virtual void SetState(Player* player,State state);
 	virtual void Update(Player* player);
-
-	static StateIdle* m_Idle;
 };
 

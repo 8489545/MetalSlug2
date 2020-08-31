@@ -46,8 +46,10 @@ inline void SafeDelete(T*& x);
 #include"EffectMgr.h"
 #include"LineMgr.h"
 #include"Game.h"
-#include"PlayerState.h"
 #include"Player.h"
+#include"PlayerState.h"
+#include"StateIdle.h"
+#include"StateRun.h"
 //
 
 template<class T>
