@@ -13,6 +13,7 @@ public:
 	~Player();
 
 	PlayerState* m_State;
+	std::wstring m_Weapon;
 
 	bool m_isGround;
 	int m_Dire;

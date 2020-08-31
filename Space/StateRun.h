@@ -5,7 +5,7 @@ public:
 	StateRun();
 	~StateRun();
 
-	void Init(Player* player, std::wstring weapon = L"");
+	void Init(Player* player);
 	void SetState(Player* player, State state);
 	void Update(Player* player);
 };

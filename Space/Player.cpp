@@ -23,6 +23,7 @@ Player::Player(Vec2 Pos)
 
 	m_State = new PlayerState();
 	m_State->SetState(this, State::IDLE);
+	m_Weapon = L"";
 }
 
 Player::~Player()
