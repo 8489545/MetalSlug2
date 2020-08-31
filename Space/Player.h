@@ -23,6 +23,7 @@ public:
 	bool m_isGround;
 	int m_Dire;
 	float m_vY;
+	float m_DistanceGround;
 
 	float m_Speed;
 

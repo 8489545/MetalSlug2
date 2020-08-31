@@ -10,6 +10,7 @@ Player::Player(Vec2 Pos)
 	m_Player = Sprite::Create(L"Painting/Player.png");
 	m_Player->SetParent(this);
 
+
 	SetPosition(800 / 2, 600 / 2);
 
 	m_isGround = false;
@@ -27,6 +28,7 @@ Player::Player(Vec2 Pos)
 	m_State = new PlayerState();
 	m_State->SetState(this);
 	m_Weapon = L"";
+	m_DistanceGround = 0;
 }
 
 Player::~Player()
@@ -97,13 +99,11 @@ void Player::Update(float deltaTime, float Time)
 		m_Body->Update(deltaTime, Time);
 
 	Camera::GetInst()->Follow(this);
-
 	m_State->Update(this);
 }
 
 void Player::Render()
 {
-
 	if (m_Top)
 		m_Top->Render();
 	if (m_Bottom)
@@ -162,9 +162,11 @@ void Player::Gravity()
 	int pos = (int)(m_Position.y + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)(m_Position.x + m_Size.x / 2);
 	D3DXCOLOR color = Game::GetInst()->GetMapColor(pos);
 
-	if (color.r == 1.f && color.g == 0 && color.b == 1.f)
+	int underpos = ((int)(m_Position.y + m_Size.y) + 1) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)(m_Position.x + m_Size.x / 2);
+	D3DXCOLOR undercolor = Game::GetInst()->GetMapColor(underpos);
+
+	if ((undercolor.r == 1.f && undercolor.g == 0 && undercolor.b == 1.f))
 	{
-		m_Position.y -= 0.1f;
 		m_isGround = true;
 		m_vY = 0.f;
 	}

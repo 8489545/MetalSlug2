@@ -36,6 +36,7 @@ void StateJump::Update(Player* player)
 		else
 			m_isFalled = false;
 	}
+
 	if (player->m_isGround && m_isFalled)
 	{
 		m_isJump = false;

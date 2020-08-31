@@ -32,6 +32,11 @@ void StateIdle::Update(Player* player)
 	}
 	if (INPUT->GetKey('A') == KeyState::DOWN)
 	{
+		if (player->m_DistanceGround > 0)
+		{
+			player->m_Position.y -= player->m_DistanceGround;
+		}
+
 		player->m_JumpTime = 0.f;
 		player->Pos = player->m_Position;
 		player->m_State = PlayerState::m_Jump;
