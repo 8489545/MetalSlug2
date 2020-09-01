@@ -82,7 +82,7 @@ void Player::Update(float deltaTime, float Time)
 	}
 	if (INPUT->GetKey(VK_LEFT) == KeyState::DOWN)
 		m_Dire = LEFT;
-	if (INPUT->GetKey(VK_RIGHT) == KeyState::DOWN)
+	else if (INPUT->GetKey(VK_RIGHT) == KeyState::DOWN)
 		m_Dire = RIGHT;
 
 	Gravity();
@@ -127,7 +127,7 @@ void Player::JumpRun()
 	{
 		m_Position.x -= m_Speed * dt;
 	}
-	if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS)
+	else if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS)
 	{
 		m_Position.x += m_Speed * dt;
 	}

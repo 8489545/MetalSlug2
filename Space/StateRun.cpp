@@ -17,10 +17,14 @@ void StateRun::Init(Player* player)
 		player->ChangeImage(L"Painting/Player/Right/Top/" + player->m_Weapon + L"Run.bmp", 0, 12, L"Painting/Player/Right/Bottom/Run.bmp", 0, 12);
 	if(player->m_Dire == LEFT)
 		player->ChangeImage(L"Painting/Player/Left/Top/" + player->m_Weapon + L"Run.bmp", 0, 12, L"Painting/Player/Left/Bottom/Run.bmp", 0, 12);
+
+	Dire = player->m_Dire;
 }
 
 void StateRun::Update(Player* player)
 {
+	if (Dire != player->m_Dire)
+		Init(player);
 	player->Move();
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::UP || INPUT->GetKey(VK_LEFT) == KeyState::UP)
 	{

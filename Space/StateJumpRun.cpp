@@ -16,10 +16,15 @@ void StateJumpRun::Init(Player* player)
 		player->ChangeImage(L"Painting/Player/Right/Top/" + player->m_Weapon + L"Jump_run.bmp", 0, 6, L"Painting/Player/Right/Bottom/Jump_run.bmp", 0, 6);
 	if (player->m_Dire == LEFT)
 		player->ChangeImage(L"Painting/Player/Left/Top/" + player->m_Weapon + L"Jump_run.bmp", 0, 6, L"Painting/Player/Left/Bottom/Jump_run.bmp", 0, 6);
+
+	Dire = player->m_Dire;
 }
 
 void StateJumpRun::Update(Player* player)
 {
+	if (Dire != player->m_Dire)
+		Init(player);
+
 	m_isJump = true;
 
 	if (m_isJump)

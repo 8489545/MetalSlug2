@@ -7,6 +7,7 @@ public:
 
 	bool m_isJump;
 	bool m_isFalled;
+	int Dire;
 
 	Vec2 m_PrevPos;
 
