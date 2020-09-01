@@ -3,10 +3,12 @@
 #include"StateIdle.h"
 #include"StateRun.h"
 #include"StateJump.h"
+#include"StateJumpRun.h"
 
 StateIdle* PlayerState::m_Idle = new StateIdle();
 StateRun* PlayerState::m_Run = new StateRun();
 StateJump* PlayerState::m_Jump = new StateJump();
+StateJumpRun* PlayerState::m_JumpRun = new StateJumpRun();
 
 PlayerState::PlayerState()
 {

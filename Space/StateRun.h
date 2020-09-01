@@ -6,7 +6,6 @@ public:
 	~StateRun();
 
 	void Init(Player* player);
-	void SetState(Player* player);
 	void Update(Player* player);
 };
 

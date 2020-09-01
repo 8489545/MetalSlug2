@@ -19,10 +19,6 @@ void StateRun::Init(Player* player)
 		player->ChangeImage(L"Painting/Player/Left/Top/" + player->m_Weapon + L"Run.bmp", 0, 12, L"Painting/Player/Left/Bottom/Run.bmp", 0, 12);
 }
 
-void StateRun::SetState(Player* player)
-{
-}
-
 void StateRun::Update(Player* player)
 {
 	player->Move();

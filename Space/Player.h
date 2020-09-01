@@ -35,6 +35,7 @@ public:
 
 	void SetImagePos();
 
+	void JumpRun();
 	void Move();
 	void Jump();
 	void Gravity();

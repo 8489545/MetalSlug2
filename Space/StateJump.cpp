@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "StateJump.h"
 #include"StateIdle.h"
+#include"StateJumpRun.h"
 
 StateJump::StateJump() : m_PrevPos(0, 0), m_isFalled(false), m_isJump(false)
 {
@@ -17,11 +18,6 @@ void StateJump::Init(Player* player)
 	if (player->m_Dire == LEFT)
 		player->ChangeImage(L"Painting/Player/Left/Top/" + player->m_Weapon + L"Jump.bmp", 0, 6, L"Painting/Player/Left/Bottom/Jump.bmp", 0, 6);
 }
-
-void StateJump::SetState(Player* player)
-{
-}
-
 void StateJump::Update(Player* player)
 {
 	m_isJump = true;
@@ -35,6 +31,11 @@ void StateJump::Update(Player* player)
 			m_isFalled = true;
 		else
 			m_isFalled = false;
+	}
+	if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS || INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
+	{
+		player->m_State = PlayerState::m_JumpRun;
+		player->m_State->Init(player);
 	}
 
 	if (player->m_isGround && m_isFalled)

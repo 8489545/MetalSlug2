@@ -1,9 +1,9 @@
 #pragma once
-class StateJump : public PlayerState
+class StateJumpRun : public PlayerState
 {
 public:
-	StateJump();
-	~StateJump();
+	StateJumpRun();
+	~StateJumpRun();
 
 	bool m_isJump;
 	bool m_isFalled;

@@ -121,6 +121,18 @@ void Player::SetImagePos()
 		m_Body->SetPosition(m_Position.x - m_Body->m_Size.x / 2 - m_Size.x, m_Position.y + m_Body->m_Size.y / 2 + m_Size.y);
 }
 
+void Player::JumpRun()
+{
+	if (INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
+	{
+		m_Position.x -= m_Speed * dt;
+	}
+	if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS)
+	{
+		m_Position.x += m_Speed * dt;
+	}
+}
+
 void Player::Move()
 {
 	if (INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
