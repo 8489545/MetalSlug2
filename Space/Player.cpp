@@ -178,3 +178,4 @@ void Player::Gravity()
 		m_Position.y += m_vY;
 	}
 }
+
