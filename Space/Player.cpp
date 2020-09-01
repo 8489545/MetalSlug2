@@ -38,30 +38,27 @@ Player::~Player()
 
 void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstring bottom, int bottomfirst, int bottomlast)
 {
-	if (m_Top)
-		ObjMgr->RemoveObject(m_Top);
-	if (m_Bottom)
-		ObjMgr->RemoveObject(m_Bottom);
-
 	Animation* Top;
 	Animation* Bottom;
 
 	Top = new Animation();
 	Top->Init(0.1f, true, BigImage);
 	Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_PINK);
+	Top->Render();
 	Top->SetScale(2.f, 2.f);
-	Top->SetPosition(-1000, -1000);
 
 	Bottom = new Animation();
 	Bottom->Init(0.1f, true, BigImage);
 	Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_PINK);
+	Bottom->Render();
 	Bottom->SetScale(2.f, 2.f);
-	Bottom->SetPosition(-1000, -1000);
 
 	if(Top)
 		m_Top = Top;
 	if(Bottom)
 		m_Bottom = Bottom;
+
+	SetImagePos();
 }
 
 void Player::ChangeImage(std::wstring body, int first, int last)
