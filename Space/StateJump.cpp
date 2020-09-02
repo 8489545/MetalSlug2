@@ -2,6 +2,7 @@
 #include "StateJump.h"
 #include"StateIdle.h"
 #include"StateJumpRun.h"
+#include"StateUnder.h"
 
 StateJump::StateJump() : m_PrevPos(0, 0), m_isFalled(false), m_isJump(false)
 {
@@ -35,6 +36,11 @@ void StateJump::Update(Player* player)
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS || INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
 	{
 		player->m_State = PlayerState::m_JumpRun;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey(VK_DOWN) == KeyState::PRESS)
+	{
+		player->m_State = PlayerState::m_Under;
 		player->m_State->Init(player);
 	}
 

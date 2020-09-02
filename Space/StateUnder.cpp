@@ -1,27 +1,27 @@
 #include "stdafx.h"
-#include "StateJumpRun.h"
+#include "StateUnder.h"
 #include"StateIdle.h"
 #include"StateJump.h"
 
-StateJumpRun::StateJumpRun()
+StateUnder::StateUnder()
 {
 }
 
-StateJumpRun::~StateJumpRun()
+StateUnder::~StateUnder()
 {
 }
 
-void StateJumpRun::Init(Player* player)
+void StateUnder::Init(Player* player)
 {
 	if (player->m_Dire == RIGHT)
-		player->ChangeImage(L"Painting/Player/Right/Top/" + player->m_Weapon + L"Jump_run.bmp", 0, 6, L"Painting/Player/Right/Bottom/Jump_run.bmp", 0, 6);
+		player->ChangeImage(L"Painting/Player/Right/Top/" + player->m_Weapon + L"Under.bmp", 0, 1, L"Painting/Player/Right/Bottom/Jump.bmp", 0, 6);
 	if (player->m_Dire == LEFT)
-		player->ChangeImage(L"Painting/Player/Left/Top/" + player->m_Weapon + L"Jump_run.bmp", 0, 6, L"Painting/Player/Left/Bottom/Jump_run.bmp", 0, 6);
+		player->ChangeImage(L"Painting/Player/Left/Top/" + player->m_Weapon + L"Under.bmp", 0, 1, L"Painting/Player/Left/Bottom/Jump.bmp", 0, 6);
 
 	Dire = player->m_Dire;
 }
 
-void StateJumpRun::Update(Player* player)
+void StateUnder::Update(Player* player)
 {
 	if (Dire != player->m_Dire)
 		Init(player);
@@ -32,7 +32,6 @@ void StateJumpRun::Update(Player* player)
 	{
 		m_PrevPos = player->m_Position;
 		player->Jump();
-		player->JumpRun();
 
 		if (m_PrevPos.y < player->m_Position.y)
 			m_isFalled = true;
@@ -40,7 +39,7 @@ void StateJumpRun::Update(Player* player)
 			m_isFalled = false;
 	}
 
-	if (INPUT->GetKey(VK_RIGHT) == KeyState::UP || INPUT->GetKey(VK_LEFT) == KeyState::UP)
+	if (INPUT->GetKey(VK_DOWN) == KeyState::UP)
 	{
 		player->m_State = PlayerState::m_Jump;
 		player->m_State->Init(player);
