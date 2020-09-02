@@ -2,6 +2,7 @@
 class PlayerState;
 class Player : public Object
 {
+public:
 	Animation* m_Top;
 	Animation* m_Bottom;
 	Animation* m_Body;

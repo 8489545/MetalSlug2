@@ -11,7 +11,7 @@ Player::Player(Vec2 Pos)
 	m_Player->SetParent(this);
 
 
-	SetPosition(800 / 2, 600 / 2);
+	SetPosition(800 / 2, 371 - 119);
 
 	m_isGround = false;
 	m_vY = 0.f;
@@ -48,14 +48,15 @@ void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstri
 	Top->SetScale(2.f, 2.f);
 
 	Bottom = new Animation();
-	Bottom->Init(0.1f, true, BigImage);
+	Bottom->Init(0.05f, true, BigImage);
 	Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_PINK);
 	Bottom->Render();
 	Bottom->SetScale(2.f, 2.f);
 
-	if(Top)
+	if (Top)
 		m_Top = Top;
-	if(Bottom)
+
+	if (Bottom)
 		m_Bottom = Bottom;
 
 	SetImagePos();
@@ -69,6 +70,8 @@ void Player::ChangeImage(std::wstring body, int first, int last)
 	m_Body = new Animation();
 	m_Body->Init(0.1f, true, BigImage);
 	m_Body->AddContinueFrame(body, first, last, COLORKEY_PINK);
+	m_Body->Render();
+	m_Body->SetScale(2.f, 2.f);
 }
 
 void Player::Update(float deltaTime, float Time)
@@ -118,7 +121,7 @@ void Player::SetImagePos()
 	if (m_Bottom)
 		m_Bottom->SetPosition(m_Position.x - m_Bottom->m_Size.x / 2 - m_Size.x, m_Position.y - m_Bottom->m_Size.y / 2);
 	if (m_Body)
-		m_Body->SetPosition(m_Position.x - m_Body->m_Size.x / 2 - m_Size.x, m_Position.y + m_Body->m_Size.y / 2 + m_Size.y);
+		m_Body->SetPosition(m_Position.x - m_Body->m_Size.x / 2 - m_Size.x, m_Position.y - (m_Body->m_Size.y * m_Body->m_Scale.y - m_Size.y));
 }
 
 void Player::JumpRun()
@@ -168,11 +171,15 @@ void Player::Jump()
 
 void Player::Gravity()
 {
+	D3DXCOLOR color;
+	D3DXCOLOR undercolor;
 	int pos = (int)(m_Position.y + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)(m_Position.x + m_Size.x / 2);
-	D3DXCOLOR color = Game::GetInst()->GetMapColor(pos);
+	if(m_Position.y > 0)
+		color = Game::GetInst()->GetMapColor(pos);
 
 	int underpos = ((int)(m_Position.y + m_Size.y) + 1) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)(m_Position.x + m_Size.x / 2);
-	D3DXCOLOR undercolor = Game::GetInst()->GetMapColor(underpos);
+	if (m_Position.y > 0)
+		undercolor = Game::GetInst()->GetMapColor(underpos);
 
 	if ((undercolor.r == 1.f && undercolor.g == 0 && undercolor.b == 1.f))
 	{
