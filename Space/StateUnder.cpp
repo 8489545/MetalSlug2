@@ -21,6 +21,7 @@ void StateUnder::Init(Player* player)
 	Dire = player->m_Dire;
 }
 
+
 void StateUnder::Update(Player* player)
 {
 	if (Dire != player->m_Dire)
