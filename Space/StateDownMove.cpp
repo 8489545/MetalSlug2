@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "StateDownMove.h"
 #include"StateIdle.h"
+#include"StateDownShot.h"
+#include"StateDown.h"
 
 StateDownMove::StateDownMove()
 {
@@ -27,7 +29,12 @@ void StateDownMove::Update(Player* player)
 	player->Move();
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::UP || INPUT->GetKey(VK_LEFT) == KeyState::UP || INPUT->GetKey(VK_DOWN) == KeyState::UP)
 	{
-		player->m_State = m_Idle;
+		player->m_State = m_Down;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey('S') == KeyState::DOWN)
+	{
+		player->m_State = m_DownShot;
 		player->m_State->Init(player);
 	}
 }

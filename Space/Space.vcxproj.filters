@@ -147,6 +147,9 @@
     <ClCompile Include="StateDownMove.cpp">
       <Filter>Game\Object\State</Filter>
     </ClCompile>
+    <ClCompile Include="StateDownShot.cpp">
+      <Filter>Game\Object\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -261,6 +264,9 @@
       <Filter>Game\Object\State</Filter>
     </ClInclude>
     <ClInclude Include="StateDownMove.h">
+      <Filter>Game\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="StateDownShot.h">
       <Filter>Game\Object\State</Filter>
     </ClInclude>
   </ItemGroup>

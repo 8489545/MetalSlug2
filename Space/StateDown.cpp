@@ -2,6 +2,7 @@
 #include "StateDown.h"
 #include"StateIdle.h"
 #include"StateDownMove.h"
+#include"StateDownShot.h"
 
 StateDown::StateDown()
 {
@@ -29,6 +30,11 @@ void StateDown::Update(Player* player)
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS || INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
 	{
 		player->m_State = m_DownMove;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey('S') == KeyState::DOWN)
+	{
+		player->m_State = m_DownShot;
 		player->m_State->Init(player);
 	}
 }

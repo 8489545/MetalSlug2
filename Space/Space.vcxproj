@@ -45,6 +45,7 @@
     <ClCompile Include="StateAppear.cpp" />
     <ClCompile Include="StateDown.cpp" />
     <ClCompile Include="StateDownMove.cpp" />
+    <ClCompile Include="StateDownShot.cpp" />
     <ClCompile Include="StateIdle.cpp" />
     <ClCompile Include="StateJump.cpp" />
     <ClCompile Include="StateJumpRun.cpp" />
@@ -87,6 +88,7 @@
     <ClInclude Include="StateAppear.h" />
     <ClInclude Include="StateDown.h" />
     <ClInclude Include="StateDownMove.h" />
+    <ClInclude Include="StateDownShot.h" />
     <ClInclude Include="StateIdle.h" />
     <ClInclude Include="StateJump.h" />
     <ClInclude Include="StateJumpRun.h" />

@@ -12,6 +12,7 @@ class StateUpShot;
 class StateUnderShot;
 class StateDown;
 class StateDownMove;
+class StateDownShot;
 
 class PlayerState
 {
@@ -36,4 +37,5 @@ public:
 	static StateUnderShot* m_UnderShot;
 	static StateDown* m_Down;
 	static StateDownMove* m_DownMove;
+	static StateDownShot* m_DownShot;
 };
