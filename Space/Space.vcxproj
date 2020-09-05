@@ -50,6 +50,7 @@
     <ClCompile Include="StateShot.cpp" />
     <ClCompile Include="StateUnder.cpp" />
     <ClCompile Include="StateUp.cpp" />
+    <ClCompile Include="StateUpShot.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
@@ -88,6 +89,7 @@
     <ClInclude Include="StateShot.h" />
     <ClInclude Include="StateUnder.h" />
     <ClInclude Include="StateUp.h" />
+    <ClInclude Include="StateUpShot.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TextMgr.h" />
     <ClInclude Include="Texture.h" />

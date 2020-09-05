@@ -8,6 +8,7 @@
 #include"StateUnder.h"
 #include"StateUp.h"
 #include"StateShot.h"
+#include"StateUpShot.h"
 
 StateIdle* PlayerState::m_Idle = new StateIdle();
 StateRun* PlayerState::m_Run = new StateRun();
@@ -17,6 +18,7 @@ StateAppear* PlayerState::m_Appear = new StateAppear();
 StateUnder* PlayerState::m_Under = new StateUnder();
 StateUp* PlayerState::m_Up = new StateUp();
 StateShot* PlayerState::m_Shot = new StateShot();
+StateUpShot* PlayerState::m_UpShot = new StateUpShot();
 
 PlayerState::PlayerState()
 {

@@ -135,6 +135,9 @@
     <ClCompile Include="Bullet.cpp">
       <Filter>Game\Object\Object</Filter>
     </ClCompile>
+    <ClCompile Include="StateUpShot.cpp">
+      <Filter>Game\Object\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -238,6 +241,9 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Game\Object\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="StateUpShot.h">
+      <Filter>Game\Object\State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

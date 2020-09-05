@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "StateUp.h"
 #include"StateIdle.h"
+#include"StateUpShot.h"
 
 StateUp::StateUp()
 {
@@ -23,6 +24,11 @@ void StateUp::Update(Player* player)
 	if (INPUT->GetKey(VK_UP) == KeyState::UP)
 	{
 		player->m_State = m_Idle;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey('S') == KeyState::DOWN)
+	{
+		player->m_State = m_UpShot;
 		player->m_State->Init(player);
 	}
 } 
