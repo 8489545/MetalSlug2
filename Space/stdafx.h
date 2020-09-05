@@ -48,6 +48,7 @@ inline void SafeDelete(T*& x);
 #include"Game.h"
 #include"Player.h"
 #include"PlayerState.h"
+#include"Bullet.h"
 //
 
 template<class T>
