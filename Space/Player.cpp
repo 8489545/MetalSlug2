@@ -42,13 +42,13 @@ void Player::ChangeImage(std::wstring top, int topfirst, int toplast, std::wstri
 	Animation* Bottom;
 
 	Top = new Animation();
-	Top->Init(0.1f, true, BigImage);
+	Top->Init(0.06f, true, BigImage);
 	Top->AddContinueFrame(top, topfirst, toplast, COLORKEY_PINK);
 	Top->Render();
 	Top->SetScale(2.f, 2.f);
 
 	Bottom = new Animation();
-	Bottom->Init(0.05f, true, BigImage);
+	Bottom->Init(0.06f, true, BigImage);
 	Bottom->AddContinueFrame(bottom, bottomfirst, bottomlast, COLORKEY_PINK);
 	Bottom->Render();
 	Bottom->SetScale(2.f, 2.f);

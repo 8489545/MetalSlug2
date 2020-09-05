@@ -7,6 +7,7 @@ class StateJumpRun;
 class StateAppear;
 class StateUnder;
 class StateUp;
+class StateShot;
 
 class PlayerState
 {
@@ -26,4 +27,5 @@ public:
 	static StateAppear* m_Appear;
 	static StateUnder* m_Under;
 	static StateUp* m_Up;
+	static StateShot* m_Shot;
 };

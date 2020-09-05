@@ -3,6 +3,7 @@
 #include"StateJump.h"
 #include"StateRun.h"
 #include"StateUp.h"
+#include"StateShot.h"
 
 StateIdle::StateIdle()
 {
@@ -46,6 +47,11 @@ void StateIdle::Update(Player* player)
 	if (INPUT->GetKey(VK_UP) == KeyState::PRESS)
 	{
 		player->m_State = m_Up;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey('S') == KeyState::DOWN)
+	{
+		player->m_State = m_Shot;
 		player->m_State->Init(player);
 	}
 }	
