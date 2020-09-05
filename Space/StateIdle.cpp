@@ -2,6 +2,7 @@
 #include "StateIdle.h"
 #include"StateJump.h"
 #include"StateRun.h"
+#include"StateUp.h"
 
 StateIdle::StateIdle()
 {
@@ -40,6 +41,11 @@ void StateIdle::Update(Player* player)
 		player->m_JumpTime = 0.f;
 		player->Pos = player->m_Position;
 		player->m_State = PlayerState::m_Jump;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey(VK_UP) == KeyState::PRESS)
+	{
+		player->m_State = m_Up;
 		player->m_State->Init(player);
 	}
 }	
