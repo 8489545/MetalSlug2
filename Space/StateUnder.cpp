@@ -2,6 +2,7 @@
 #include "StateUnder.h"
 #include"StateIdle.h"
 #include"StateJump.h"
+#include"StateUnderShot.h"
 
 StateUnder::StateUnder()
 {
@@ -43,6 +44,11 @@ void StateUnder::Update(Player* player)
 	if (INPUT->GetKey(VK_DOWN) == KeyState::UP)
 	{
 		player->m_State = PlayerState::m_Jump;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey('S') == KeyState::UP)
+	{
+		player->m_State = PlayerState::m_UnderShot;
 		player->m_State->Init(player);
 	}
 
