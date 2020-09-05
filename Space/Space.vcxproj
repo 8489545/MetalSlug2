@@ -43,6 +43,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Stage1.cpp" />
     <ClCompile Include="StateAppear.cpp" />
+    <ClCompile Include="StateDown.cpp" />
     <ClCompile Include="StateIdle.cpp" />
     <ClCompile Include="StateJump.cpp" />
     <ClCompile Include="StateJumpRun.cpp" />
@@ -83,6 +84,7 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Stage1.h" />
     <ClInclude Include="StateAppear.h" />
+    <ClInclude Include="StateDown.h" />
     <ClInclude Include="StateIdle.h" />
     <ClInclude Include="StateJump.h" />
     <ClInclude Include="StateJumpRun.h" />

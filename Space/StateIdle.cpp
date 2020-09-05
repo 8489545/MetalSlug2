@@ -4,6 +4,7 @@
 #include"StateRun.h"
 #include"StateUp.h"
 #include"StateShot.h"
+#include"StateDown.h"
 
 StateIdle::StateIdle()
 {
@@ -27,6 +28,11 @@ void StateIdle::SetState(Player* player)
 
 void StateIdle::Update(Player* player)
 {
+	if (INPUT->GetKey(VK_DOWN) == KeyState::PRESS)
+	{
+		player->m_State = m_Down;
+		player->m_State->Init(player);
+	}
 	if (INPUT->GetKey(VK_RIGHT) == KeyState::PRESS || INPUT->GetKey(VK_LEFT) == KeyState::PRESS)
 	{
 		player->m_State = PlayerState::m_Run;

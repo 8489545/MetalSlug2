@@ -10,6 +10,7 @@
 #include"StateShot.h"
 #include"StateUpShot.h"
 #include"StateUnderShot.h"
+#include"StateDown.h"
 
 StateIdle* PlayerState::m_Idle = new StateIdle();
 StateRun* PlayerState::m_Run = new StateRun();
@@ -21,6 +22,7 @@ StateUp* PlayerState::m_Up = new StateUp();
 StateShot* PlayerState::m_Shot = new StateShot();
 StateUpShot* PlayerState::m_UpShot = new StateUpShot();
 StateUnderShot* PlayerState::m_UnderShot = new StateUnderShot();
+StateDown* PlayerState::m_Down = new StateDown();
 
 PlayerState::PlayerState()
 {
