@@ -26,10 +26,10 @@ void StateDownShot::Update(Player* player)
 
 		if (player->m_Dire == RIGHT)
 			ObjMgr->AddObject(new Bullet(L"Painting/Player/Att/Pistol.bmp", Vec2((player->m_Position.x + 1000), player->m_Position.y),
-				Vec2(player->m_Position.x, player->m_Position.y + 70), 800.f), "pBullet");
+				Vec2(player->m_Position.x + 30, player->m_Position.y + 60), 800.f), "pBullet");
 		else if (player->m_Dire == LEFT)
 			ObjMgr->AddObject(new Bullet(L"Painting/Player/Att/Pistol.bmp", Vec2((player->m_Position.x - 1000), player->m_Position.y),
-				Vec2(player->m_Position.x, player->m_Position.y + 70), 800.f), "pBullet");
+				Vec2(player->m_Position.x - 30, player->m_Position.y + 60), 800.f), "pBullet");
 	}
 	if (player->m_Top->m_CurrentFrame > 3)
 	{

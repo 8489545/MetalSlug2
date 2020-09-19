@@ -22,7 +22,7 @@ void StateDown::Init(Player* player)
 
 void StateDown::Update(Player* player)
 {
-	if (INPUT->GetKey(VK_DOWN) == KeyState::UP)
+	if (INPUT->GetKey(VK_DOWN) != KeyState::PRESS)
 	{
 		player->m_State = m_Idle;
 		player->m_State->Init(player);
