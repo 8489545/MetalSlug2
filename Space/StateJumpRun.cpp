@@ -55,7 +55,7 @@ void StateJumpRun::Update(Player* player)
 	}
 	if (INPUT->GetKey('S') == KeyState::DOWN)
 	{
-		player->m_State = m_Shot;
-		player->m_State->Init(player);
+		//player->m_State = m_Shot;
+		//player->m_State->Init(player);
 	}
 }

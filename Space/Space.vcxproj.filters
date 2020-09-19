@@ -150,6 +150,9 @@
     <ClCompile Include="StateDownShot.cpp">
       <Filter>Game\Object\State</Filter>
     </ClCompile>
+    <ClCompile Include="StateJumpShot.cpp">
+      <Filter>Game\Object\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -221,9 +224,6 @@
     <ClInclude Include="Game.h">
       <Filter>Game\Mgrs</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerState.h">
-      <Filter>Game\Object\State</Filter>
-    </ClInclude>
     <ClInclude Include="StateIdle.h">
       <Filter>Game\Object\State</Filter>
     </ClInclude>
@@ -267,6 +267,12 @@
       <Filter>Game\Object\State</Filter>
     </ClInclude>
     <ClInclude Include="StateDownShot.h">
+      <Filter>Game\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>Game\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="StateJumpShot.h">
       <Filter>Game\Object\State</Filter>
     </ClInclude>
   </ItemGroup>

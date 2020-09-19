@@ -3,7 +3,7 @@
 #include"StateIdle.h"
 #include"StateJumpRun.h"
 #include"StateUnder.h"
-#include"StateShot.h"
+#include"StateJumpShot.h"
 
 StateJump::StateJump() : m_PrevPos(0, 0), m_isFalled(false), m_isJump(false)
 {
@@ -54,7 +54,7 @@ void StateJump::Update(Player* player)
 
 	if (INPUT->GetKey('S') == KeyState::DOWN)
 	{
-		player->m_State = m_Shot;
+		player->m_State = m_JumpShot;
 		player->m_State->Init(player);
 	}
 }
