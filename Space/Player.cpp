@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
-
+#include"Bomb.h"
 
 Player::Player(Vec2 Pos)
 {

@@ -15,6 +15,7 @@ class StateDownMove;
 class StateDownShot;
 class StateJumpShot;
 class StateJumpRunShot;
+class StateBomb;
 
 class PlayerState
 {
@@ -42,4 +43,5 @@ public:
 	static StateDownShot* m_DownShot;
 	static StateJumpShot* m_JumpShot;
 	static StateJumpRunShot* m_JumpRunShot;
+	static StateBomb* m_Bomb;
 };

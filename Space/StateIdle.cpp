@@ -5,6 +5,7 @@
 #include"StateUp.h"
 #include"StateShot.h"
 #include"StateDown.h"
+#include"StateBomb.h"
 
 StateIdle::StateIdle()
 {
@@ -58,6 +59,11 @@ void StateIdle::Update(Player* player)
 	if (INPUT->GetKey('S') == KeyState::DOWN)
 	{
 		player->m_State = m_Shot;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey('D') == KeyState::DOWN)
+	{
+		player->m_State = m_Bomb;
 		player->m_State->Init(player);
 	}
 }	

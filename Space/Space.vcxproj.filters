@@ -156,6 +156,12 @@
     <ClCompile Include="StateJumpRunShot.cpp">
       <Filter>Game\Object\State</Filter>
     </ClCompile>
+    <ClCompile Include="StateBomb.cpp">
+      <Filter>Game\Object\State</Filter>
+    </ClCompile>
+    <ClCompile Include="Bomb.cpp">
+      <Filter>Game\Object\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -280,6 +286,12 @@
     </ClInclude>
     <ClInclude Include="StateJumpRunShot.h">
       <Filter>Game\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="StateBomb.h">
+      <Filter>Game\Object\State</Filter>
+    </ClInclude>
+    <ClInclude Include="Bomb.h">
+      <Filter>Game\Object\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
