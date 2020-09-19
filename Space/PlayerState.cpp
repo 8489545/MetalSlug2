@@ -14,6 +14,7 @@
 #include"StateDownMove.h"
 #include"StateDownShot.h"
 #include"StateJumpShot.h"
+#include"StateJumpRunShot.h"
 
 StateIdle* PlayerState::m_Idle = new StateIdle();
 StateRun* PlayerState::m_Run = new StateRun();
@@ -29,6 +30,7 @@ StateDown* PlayerState::m_Down = new StateDown();
 StateDownMove* PlayerState::m_DownMove = new StateDownMove();
 StateDownShot* PlayerState::m_DownShot = new StateDownShot();
 StateJumpShot* PlayerState::m_JumpShot = new StateJumpShot();
+StateJumpRunShot* PlayerState::m_JumpRunShot = new StateJumpRunShot();
 
 PlayerState::PlayerState()
 {
