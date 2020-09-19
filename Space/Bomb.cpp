@@ -45,6 +45,7 @@ void Bomb::Update(float deltaTime, float Time)
 
 	if ((color.r == 1.f && color.g == 0 && color.b == 1.f))
 	{
+		ObjMgr->AddObject(new EffectMgr(L"Painting/Effect/player_bomb.bmp", 1, 23, 0.05f,BigImage, Vec2(m_Position.x,m_Position.y - 200)), "Effect");
 		m_Destroy = true; 
 	}
 
