@@ -18,6 +18,20 @@ Bullet::~Bullet()
 
 void Bullet::Update(float deltaTime, float Time)
 {
+	if (!Game::GetInst()->m_DebugMode)
+	{
+		m_Bullet->A = 255;
+		m_Bullet->R = 255;
+		m_Bullet->G = 255;
+		m_Bullet->B = 255;
+	}
+	else
+	{
+		m_Bullet->A = 255;
+		m_Bullet->R = 0;
+		m_Bullet->G = 0;
+		m_Bullet->B = 255;
+	}
 	D3DXVec2Normalize(&Dire, &m_Arrival);
 	m_Timer += dt;
 	Translate(Dire.x * m_Speed * dt, Dire.y * m_Speed * dt);
