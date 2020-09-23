@@ -1,6 +1,7 @@
 #pragma once
 class Bomb : public Object
 {
+	Sprite* m_BombBox;
 	Animation* m_Bomb;
 
 public:

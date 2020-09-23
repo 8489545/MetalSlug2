@@ -3,11 +3,16 @@
 
 Bomb::Bomb(Vec2 Pos,int Dire)
 {
+	m_BombBox = Sprite::Create(L"Painting/Player/Att/BombBox.png");
+	m_BombBox->SetParent(this);
+
 	m_Bomb = new Animation();
 	m_Bomb->Init(0.01f, true, BigImage);
 	m_Bomb->AddContinueFrame(L"Painting/Player/Att/Bomb.bmp",1,32,COLORKEY_PINK);
+	m_Bomb->SetPosition(m_Position.x - m_Bomb->m_Size.x + m_Size.x, m_Position.y - (m_Bomb->m_Size.y * m_Bomb->m_Scale.y - m_Size.y));
 	m_Bomb->Render();
-	m_Bomb->SetParent(this);
+
+	m_BombBox->m_Visible = false;
 
 	m_Position = Pos;
 	m_Pos = Pos;
@@ -25,7 +30,12 @@ Bomb::~Bomb()
 
 void Bomb::Update(float deltaTime, float Time)
 {
-	//23 frame
+	if (!Game::GetInst()->m_DebugMode)
+		m_BombBox->m_Visible = false;
+	else
+		m_BombBox->m_Visible = true;
+
+
 	if (m_Dire == RIGHT)
 	{
 		m_Position.x = (m_Power * cos(D3DXToRadian(-60))) * m_Time + m_Pos.x;
@@ -49,12 +59,14 @@ void Bomb::Update(float deltaTime, float Time)
 		m_Destroy = true; 
 	}
 
+	m_Bomb->SetPosition(m_Position.x - m_Bomb->m_Size.x + m_Size.x, m_Position.y - (m_Bomb->m_Size.y * m_Bomb->m_Scale.y - m_Size.y));
 	m_Bomb->Update(deltaTime, Time);
 }
 
 void Bomb::Render()
 {
 	m_Bomb->Render();
+	m_BombBox->Render();
 }
 
 void Bomb::OnCollision(Object* other)

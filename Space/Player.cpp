@@ -76,13 +76,12 @@ void Player::ChangeImage(std::wstring body, int first, int last)
 
 void Player::Update(float deltaTime, float Time)
 {
-	if (INPUT->GetKey('V') == KeyState::DOWN)
-	{
-		if (m_Player->m_Visible)
-			m_Player->m_Visible = false;
-		else
-			m_Player->m_Visible = true;
-	}
+	
+	if (!Game::GetInst()->m_DebugMode)
+		m_Player->m_Visible = false;
+	else
+		m_Player->m_Visible = true;
+	
 	if (INPUT->GetKey(VK_LEFT) == KeyState::DOWN)
 		m_Dire = LEFT;
 	else if (INPUT->GetKey(VK_RIGHT) == KeyState::DOWN)

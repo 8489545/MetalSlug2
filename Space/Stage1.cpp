@@ -26,13 +26,10 @@ void Stage1::Release()
 
 void Stage1::Update(float deltaTime, float Time)
 {
-	if (INPUT->GetKey('V') == KeyState::DOWN)
-	{
-		if (m_CMap->m_Visible)
-			m_CMap->m_Visible = false;
-		else
-			m_CMap->m_Visible = true;
-	}
+	if (!Game::GetInst()->m_DebugMode)
+		m_CMap->m_Visible = false;
+	else
+		m_CMap->m_Visible = true;
 }
 
 void Stage1::Render()

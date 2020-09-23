@@ -13,6 +13,7 @@ Game::~Game()
 
 void Game::Init()
 {
+	m_DebugMode = false;
 }
 
 void Game::Release()
@@ -24,4 +25,15 @@ void Game::CollisionMapInit(Sprite* cMap)
 	cMap->GetSpriteTexture()->GetTexture()->LockRect(0, &m_CollisionMapRect, 0, 0);
 	m_MapColor = (DWORD*)m_CollisionMapRect.pBits;
 	cMap->GetSpriteTexture()->GetTexture()->UnlockRect(0);
+}
+
+void Game::Update()
+{
+	if (INPUT->GetKey('V') == KeyState::DOWN)
+	{
+		if (m_DebugMode)
+			m_DebugMode = false;
+		else
+			m_DebugMode = true;
+	}
 }
