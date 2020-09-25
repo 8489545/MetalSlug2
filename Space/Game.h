@@ -10,13 +10,16 @@ public:
 	Game();
 	~Game();
 
-	bool m_DebugMode;
+	bool m_isCreateUI;
 
 	void Init();
 	void Release();
 	void CollisionMapInit(Sprite* cMap);
 
+	void CreateUI();
+
 	void Update();
+	void Render();
 
 	DWORD GetMapColor(int pos) { return m_MapColor[pos]; }
 	D3DLOCKED_RECT GetCollisionMapRect() { return m_CollisionMapRect; }

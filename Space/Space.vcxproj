@@ -64,6 +64,7 @@
     <ClCompile Include="TextMgr.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="StateUnderShot.cpp" />
+    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -109,6 +110,7 @@
     <ClInclude Include="TextMgr.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="StateUnderShot.h" />
+    <ClInclude Include="UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

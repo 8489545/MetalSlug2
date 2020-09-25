@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Game.h"
 #include"Texture.h"
+#include"UI.h"
 
 Game::Game()
 {
@@ -13,7 +14,7 @@ Game::~Game()
 
 void Game::Init()
 {
-	m_DebugMode = false;
+	m_isCreateUI = false;
 }
 
 void Game::Release()
@@ -27,13 +28,23 @@ void Game::CollisionMapInit(Sprite* cMap)
 	cMap->GetSpriteTexture()->GetTexture()->UnlockRect(0);
 }
 
+void Game::CreateUI()
+{
+	if (!m_isCreateUI)
+	{
+		UI::GetInst()->Init();
+		m_isCreateUI = true;
+	}
+}
+
 void Game::Update()
 {
-	if (INPUT->GetKey('V') == KeyState::DOWN)
-	{
-		if (m_DebugMode)
-			m_DebugMode = false;
-		else
-			m_DebugMode = true;
-	}
+	if (m_isCreateUI)
+		UI::GetInst()->Update();
+}
+
+void Game::Render()
+{
+	if (m_isCreateUI)
+		UI::GetInst()->Render();
 }
