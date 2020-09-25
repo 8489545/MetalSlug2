@@ -29,6 +29,8 @@ Player::Player(Vec2 Pos)
 	m_State->SetState(this);
 	m_Weapon = L"";
 	m_DistanceGround = 0;
+
+	Game::GetInst()->CreateUI();
 }
 
 Player::~Player()

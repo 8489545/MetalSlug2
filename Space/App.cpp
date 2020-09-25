@@ -15,7 +15,6 @@ bool App::Init(int width, int height, bool windowMode)
 	m_Height = height;
 	m_WindowMode = windowMode;
 
-
 	if (!_CreateWindow())
 		return false;
 
@@ -23,6 +22,7 @@ bool App::Init(int width, int height, bool windowMode)
 		return false;
 
 	Time = 0.0f;
+	Game::GetInst()->Init();
 	return true;
 }
 
