@@ -170,11 +170,7 @@ void Player::Jump()
 
 void Player::Gravity()
 {
-	D3DXCOLOR color;
 	D3DXCOLOR undercolor;
-	int pos = (int)(m_Position.y + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)(m_Position.x + m_Size.x / 2);
-	if(m_Position.y > 0)
-		color = Game::GetInst()->GetMapColor(pos);
 
 	int underpos = ((int)(m_Position.y + m_Size.y) + 1) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)(m_Position.x + m_Size.x / 2);
 	if (m_Position.y > 0)
