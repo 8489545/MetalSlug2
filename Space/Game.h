@@ -11,6 +11,7 @@ public:
 	~Game();
 
 	bool m_isCreateUI;
+	bool m_DebugMode;
 
 	void Init();
 	void Release();

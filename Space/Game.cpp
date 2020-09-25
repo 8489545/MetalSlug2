@@ -15,6 +15,7 @@ Game::~Game()
 void Game::Init()
 {
 	m_isCreateUI = false;
+	m_DebugMode = false;
 }
 
 void Game::Release()
@@ -39,6 +40,14 @@ void Game::CreateUI()
 
 void Game::Update()
 {
+	if (INPUT->GetKey('V') == KeyState::DOWN)
+	{
+		if (m_DebugMode)
+			m_DebugMode = false;
+		else
+			m_DebugMode = true;
+	}
+
 	if (m_isCreateUI)
 		UI::GetInst()->Update();
 }
