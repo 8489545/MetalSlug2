@@ -16,6 +16,8 @@ void Game::Init()
 {
 	m_isCreateUI = false;
 	m_DebugMode = false;
+
+	printf("asdf");
 }
 
 void Game::Release()
@@ -43,9 +45,13 @@ void Game::Update()
 	if (INPUT->GetKey('V') == KeyState::DOWN)
 	{
 		if (m_DebugMode)
+		{
 			m_DebugMode = false;
-		else
+		}
+		else if (!m_DebugMode)
+		{
 			m_DebugMode = true;
+		}
 	}
 
 	if (m_isCreateUI)

@@ -78,7 +78,6 @@ void Player::ChangeImage(std::wstring body, int first, int last)
 
 void Player::Update(float deltaTime, float Time)
 {
-	
 	if (!Game::GetInst()->m_DebugMode)
 		m_Player->m_Visible = false;
 	else

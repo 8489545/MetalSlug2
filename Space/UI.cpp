@@ -21,13 +21,13 @@ void UI::Init()
 	m_PlayerFrame->SetScale(3, 3);
 	m_PlayerFrame->m_Tag = "UI";
 
-	m_PlayerFrame->SetPosition(m_Time->m_Position.x - 200, 30);
+	m_PlayerFrame->SetPosition(m_Time->m_Position.x - 190, 30);
 
 	m_HpBar = Sprite::Create(L"Painting/UI/hpbar.bmp");
 	m_HpBar->SetScale(3, 3);
 	m_HpBar->m_Tag = "UI";
 
-	m_HpBar->SetPosition(m_PlayerFrame->m_Position.x - 100, 50);
+	m_HpBar->SetPosition(m_PlayerFrame->m_Position.x - 160, 60);
 
 	m_1Up = Sprite::Create(L"Painting/UI/1up.bmp");
 	m_1Up->SetScale(3, 3);
