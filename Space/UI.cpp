@@ -32,14 +32,18 @@ void UI::Init()
 	m_1Up = Sprite::Create(L"Painting/UI/1up.bmp");
 	m_1Up->SetScale(3, 3);
 	m_1Up->m_Tag = "UI";
+
+	m_1Up->SetPosition(m_HpBar->m_Position.x, 90);
 }
 
 void UI::Release()
 {
+
 }
 
 void UI::Update()
 {
+
 }
 
 void UI::Render()

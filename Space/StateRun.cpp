@@ -3,6 +3,7 @@
 #include "StateIdle.h"
 #include"StateJump.h"
 #include"StateShot.h"
+#include"StateBomb.h"
 
 StateRun::StateRun()
 {
@@ -42,6 +43,11 @@ void StateRun::Update(Player* player)
 	if (INPUT->GetKey('S') == KeyState::DOWN)
 	{
 		player->m_State = m_Shot;
+		player->m_State->Init(player);
+	}
+	if (INPUT->GetKey('D') == KeyState::DOWN)
+	{
+		player->m_State = m_Bomb;
 		player->m_State->Init(player);
 	}
 }

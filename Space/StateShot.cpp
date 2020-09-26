@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "StateShot.h"
 #include"StateIdle.h"
+#include"StateBomb.h" 
 
 StateShot::StateShot()
 {
@@ -54,5 +55,11 @@ void StateShot::Update(Player* player)
 			player->m_State = m_Shot;
 			player->m_State->Init(player);
 		}
+	}
+
+	if (INPUT->GetKey('D') == KeyState::DOWN)
+	{
+		player->m_State = m_Bomb;
+		player->m_State->Init(player);
 	}
 }
