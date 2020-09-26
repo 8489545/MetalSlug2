@@ -28,4 +28,12 @@ void StateBomb::Update(Player* player)
 		player->m_State = m_Idle;
 		player->m_State->Init(player);
 	}
+	if (player->m_Top->m_CurrentFrame >= 3)
+	{
+		if (INPUT->GetKey('D') == KeyState::DOWN)
+		{
+			player->m_State = m_Bomb;
+			player->m_State->Init(player);
+		}
+	}
 }

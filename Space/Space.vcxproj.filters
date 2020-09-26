@@ -168,6 +168,9 @@
     <ClCompile Include="StateJumpBomb.cpp">
       <Filter>Game\Object\PlayerState</Filter>
     </ClCompile>
+    <ClCompile Include="StateJumpRunBomb.cpp">
+      <Filter>Game\Object\PlayerState</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -303,6 +306,9 @@
       <Filter>Game\Mgrs</Filter>
     </ClInclude>
     <ClInclude Include="StateJumpBomb.h">
+      <Filter>Game\Object\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="StateJumpRunBomb.h">
       <Filter>Game\Object\PlayerState</Filter>
     </ClInclude>
   </ItemGroup>
