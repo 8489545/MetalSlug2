@@ -27,8 +27,8 @@ public:
 
 
 	void SetState(Player* player);
-	virtual void Init(Player* player);
-	virtual void Update(Player* player);
+	virtual void Init(Player* player) = 0;
+	virtual void Update(Player* player) = 0;
 
 	static StateIdle* m_Idle;
 	static StateRun* m_Run;
