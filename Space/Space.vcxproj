@@ -24,6 +24,7 @@
     <ClCompile Include="Arabian.cpp" />
     <ClCompile Include="ArabianState.cpp" />
     <ClCompile Include="ArabianStateIdle.cpp" />
+    <ClCompile Include="ArabianStateRun.cpp" />
     <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -77,6 +78,7 @@
     <ClInclude Include="Arabian.h" />
     <ClInclude Include="ArabianState.h" />
     <ClInclude Include="ArabianStateIdle.h" />
+    <ClInclude Include="ArabianStateRun.h" />
     <ClInclude Include="Bomb.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />

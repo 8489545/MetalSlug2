@@ -2,8 +2,10 @@
 #include"Arabian.h"
 #include "ArabianState.h"
 #include"ArabianStateIdle.h"
+#include"ArabianStateRun.h"
 
 ArabianStateIdle* ArabianState::m_ArabianStateIdle = new ArabianStateIdle();
+ArabianStateRun* ArabianState::m_ArabianStateRun = new ArabianStateRun();
 
 ArabianState::ArabianState()
 {

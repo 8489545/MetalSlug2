@@ -186,6 +186,9 @@
     <ClCompile Include="ArabianStateIdle.cpp">
       <Filter>Game\Object\State\EnemyState</Filter>
     </ClCompile>
+    <ClCompile Include="ArabianStateRun.cpp">
+      <Filter>Game\Object\State\EnemyState</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -333,6 +336,9 @@
       <Filter>Game\Object\State\EnemyState</Filter>
     </ClInclude>
     <ClInclude Include="ArabianStateIdle.h">
+      <Filter>Game\Object\State\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="ArabianStateRun.h">
       <Filter>Game\Object\State\EnemyState</Filter>
     </ClInclude>
   </ItemGroup>

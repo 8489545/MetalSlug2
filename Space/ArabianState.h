@@ -2,6 +2,7 @@
 class Arabian;
 
 class ArabianStateIdle;
+class ArabianStateRun;
 
 class ArabianState
 {
@@ -16,5 +17,6 @@ public:
 	virtual void Update(Arabian* arabian) = 0;
 
 	static ArabianStateIdle* m_ArabianStateIdle;
+	static ArabianStateRun* m_ArabianStateRun;
 };
 

@@ -18,6 +18,8 @@ Arabian::Arabian(Vec2 Pos)
 
 	m_State->SetIdle(this);
 	m_Body->m_Position = Pos;
+
+	m_Speed = 150.f;
 }
 
 Arabian::~Arabian()
@@ -67,8 +69,35 @@ void Arabian::Gravity()
 
 void Arabian::SetImagePos()
 {
-	m_Body->SetPosition(m_Position.x - m_Size.x, m_Position.y - m_Size.y / 2);
-	m_Sight->SetPosition(m_Position.x - m_Sight->m_Size.x / 2 + m_Arabian->m_Size.x / 2, m_Position.y - m_Sight->m_Size.y / 2);
+	m_Body->SetPosition(m_Position.x + 130, m_Position.y - m_Body->m_Size.y / 2);
+	m_Sight->m_Position.x = m_Position.x - m_Sight->m_Size.x / 2 + 30;
+	m_Sight->m_Position.y = m_Position.y - m_Sight->m_Size.y / 2;
+}
+
+void Arabian::Move(int Dire)
+{     
+	if (Dire == LEFT)
+	{
+		int lpos = (int)((m_Position.y) + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)((m_Position.x + 1) + m_Size.x / 2);
+		D3DXCOLOR lcolor = Game::GetInst()->GetMapColor(lpos);
+
+		m_Position.x -= m_Speed * dt;
+		if (!(lcolor.r == 0.f && lcolor.g == 0 && lcolor.b == 0.f))
+		{
+			m_Position.y -= m_Speed / 2 * dt;
+		}
+	}
+	else if (Dire == RIGHT)
+	{
+		int rpos = (int)((m_Position.y) + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)((m_Position.x + 1) + m_Size.x / 2);
+		D3DXCOLOR rcolor = Game::GetInst()->GetMapColor(rpos);
+
+		m_Position.x += m_Speed * dt;
+		if (!(rcolor.r == 0.f && rcolor.g == 0 && rcolor.b == 0.f))
+		{
+			m_Position.y -= m_Speed / 2 * dt;
+		}
+	}
 }
 
 void Arabian::Update(float deltaTime, float Time)

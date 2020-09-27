@@ -13,6 +13,8 @@ public:
 	bool m_isGround;
 	float m_vY;
 
+	float m_Speed;
+
 	int m_Dire;
 
 	ArabianState* m_State;
@@ -21,6 +23,7 @@ public:
 
 	void Gravity();
 	void SetImagePos();
+	void Move(int Dire);
 
 	void Update(float deltaTime,float Time);
 	void Render();
