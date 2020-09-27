@@ -1,5 +1,8 @@
 #pragma once
 class Arabian;
+
+class ArabianStateIdle;
+
 class ArabianState
 {
 public:
@@ -7,9 +10,11 @@ public:
 	virtual ~ArabianState();
 
 	
-	void SetState(Arabian* arabian);
+	void SetIdle(Arabian* arabian);
 
 	virtual void Init(Arabian* arabian) = 0;
 	virtual void Update(Arabian* arabian) = 0;
+
+	static ArabianStateIdle* m_ArabianStateIdle;
 };
 

@@ -1,4 +1,5 @@
 #pragma once
+class ArabianState;
 class Arabian : public Object
 {
 public:
@@ -12,7 +13,14 @@ public:
 	bool m_isGround;
 	float m_vY;
 
+	int m_Dire;
+
+	ArabianState* m_State;
+
+	void ChangeImage(std::wstring body, int first, int last);
+
 	void Gravity();
+	void SetImagePos();
 
 	void Update(float deltaTime,float Time);
 	void Render();

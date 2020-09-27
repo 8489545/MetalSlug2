@@ -1,28 +1,43 @@
 #include "stdafx.h"
 #include "Arabian.h"
+#include"ArabianState.h"
 
 Arabian::Arabian(Vec2 Pos)
 {
 	m_Arabian = Sprite::Create(L"Painting/Enemy/Arabian/Body.png");
 	m_Arabian->SetParent(this);
 
-	m_Body = new Animation();
-	m_Body->Init(0.06f, true, BigImage);
-	m_Body->AddContinueFrame(L"Painting/Enemy/Arabian/Idle.bmp",0,12);
-	m_Body->Render();
-	m_Body->SetScale(2, 2);
-
 	m_Sight = Sprite::Create(L"Painting/Enemy/Arabian/Sight.png");
 
 	m_Position = Pos;
-	m_Body->m_Position = Pos;
 
 	m_isGround = false;
 	m_vY = 0.f;
+
+	m_Dire = RIGHT;
+
+	m_State->SetIdle(this);
+	m_Body->m_Position = Pos;
 }
 
 Arabian::~Arabian()
 {
+}
+
+void Arabian::ChangeImage(std::wstring body, int first, int last)
+{
+	if (m_Body)
+		ObjMgr->RemoveObject(m_Body);
+
+	m_Body = new Animation();
+	m_Body->Init(0.1f, true, BigImage);
+	m_Body->AddContinueFrame(body, first, last, COLORKEY_PINK);
+	m_Body->Render();
+
+	if (m_Dire == RIGHT)
+		m_Body->SetScale(-2.f, 2.f);
+	else if (m_Dire == LEFT)
+		m_Body->SetScale(2.f, 2.f);
 }
 
 void Arabian::Gravity()
@@ -50,6 +65,12 @@ void Arabian::Gravity()
 	}
 }
 
+void Arabian::SetImagePos()
+{
+	m_Body->SetPosition(m_Position.x - m_Size.x, m_Position.y - m_Size.y / 2);
+	m_Sight->SetPosition(m_Position.x - m_Sight->m_Size.x / 2 + m_Arabian->m_Size.x / 2, m_Position.y - m_Sight->m_Size.y / 2);
+}
+
 void Arabian::Update(float deltaTime, float Time)
 {
 	if (!Game::GetInst()->m_DebugMode)
@@ -64,18 +85,20 @@ void Arabian::Update(float deltaTime, float Time)
 	}
 
 	Gravity();
+	SetImagePos();
 
-	m_Body->SetPosition(m_Position.x - m_Size.x,m_Position.y - m_Size.y / 2);
-	m_Sight->SetPosition(m_Position.x - m_Sight->m_Size.x / 2 + m_Arabian->m_Size.x / 2, m_Position.y - m_Sight->m_Size.y / 2);
+	m_State->Update(this);
 
-	m_Body->Update(deltaTime, Time);
+	if(m_Body)
+		m_Body->Update(deltaTime, Time);
 }
 
 void Arabian::Render()
 {
 	m_Arabian->m_Rect = m_Body->m_Rect;
 	m_Collision = m_Arabian->m_Rect;
-	m_Body->Render();
+	if(m_Body)
+		m_Body->Render();
 	m_Sight->Render();
 	m_Arabian->Render();
 }

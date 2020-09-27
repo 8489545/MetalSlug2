@@ -46,16 +46,8 @@ PlayerState::~PlayerState()
 {
 }
 
-void PlayerState::Init(Player* player)
-{
-}
-
 void PlayerState::SetState(Player* player)
 {
 	player->m_State = m_Appear;
 	player->m_State->Init(player);
-}
-
-void PlayerState::Update(Player* player)
-{
 }
