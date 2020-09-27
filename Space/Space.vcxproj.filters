@@ -28,7 +28,10 @@
     <Filter Include="Game\Object\Object">
       <UniqueIdentifier>{6748b3cd-5d01-454c-81bf-c83ec9f499a1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\Object\PlayerState">
+    <Filter Include="Game\Object\State">
+      <UniqueIdentifier>{0deff208-5a72-405f-be59-c8818ba08722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\State\PlayerState">
       <UniqueIdentifier>{32895505-6d1e-4122-acd1-21614cfad4b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -103,61 +106,61 @@
       <Filter>Game\Mgrs</Filter>
     </ClCompile>
     <ClCompile Include="PlayerState.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateIdle.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Game\Object\Object</Filter>
     </ClCompile>
     <ClCompile Include="StateRun.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateJump.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateJumpRun.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateAppear.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateUnder.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateUp.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateShot.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Game\Object\Object</Filter>
     </ClCompile>
     <ClCompile Include="StateUpShot.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateUnderShot.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateDown.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateDownMove.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateDownShot.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateJumpShot.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateJumpRunShot.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateBomb.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="Bomb.cpp">
       <Filter>Game\Object\Object</Filter>
@@ -166,10 +169,13 @@
       <Filter>Game\Mgrs</Filter>
     </ClCompile>
     <ClCompile Include="StateJumpBomb.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClCompile>
     <ClCompile Include="StateJumpRunBomb.cpp">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Arabian.cpp">
+      <Filter>Game\Object\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -243,61 +249,61 @@
       <Filter>Game\Mgrs</Filter>
     </ClInclude>
     <ClInclude Include="StateIdle.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Game\Object\Object</Filter>
     </ClInclude>
     <ClInclude Include="StateRun.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateJump.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateJumpRun.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateAppear.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateUnder.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateUp.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateShot.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Game\Object\Object</Filter>
     </ClInclude>
     <ClInclude Include="StateUpShot.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateUnderShot.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateDown.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateDownMove.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateDownShot.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="PlayerState.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateJumpShot.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateJumpRunShot.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateBomb.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="Bomb.h">
       <Filter>Game\Object\Object</Filter>
@@ -306,10 +312,13 @@
       <Filter>Game\Mgrs</Filter>
     </ClInclude>
     <ClInclude Include="StateJumpBomb.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="StateJumpRunBomb.h">
-      <Filter>Game\Object\PlayerState</Filter>
+      <Filter>Game\Object\State\PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Arabian.h">
+      <Filter>Game\Object\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

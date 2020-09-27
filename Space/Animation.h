@@ -26,6 +26,8 @@ public:
 	Animation();
 	~Animation();
 
+	RECT m_Rect;
+
 	void AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame, D3DXCOLOR ColorKey = COLORKEY_PINK);
 
 	void Init(float delay, bool play,int Mode);

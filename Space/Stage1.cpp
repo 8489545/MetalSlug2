@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Stage1.h"
 #include "Player.h"
+#include"Arabian.h"
 
 void Stage1::Init()
 {
@@ -19,6 +20,7 @@ void Stage1::Init()
 	Game::GetInst()->CollisionMapInit(m_CMap);
 
 	ObjMgr->AddObject(new Player(Vec2(0,0)),"Player");
+	ObjMgr->AddObject(new Arabian(Vec2(800 / 2,600 / 2)),"Player");
 }
 
 void Stage1::Release()

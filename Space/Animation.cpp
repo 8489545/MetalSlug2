@@ -111,6 +111,7 @@ void Animation::Render()
 	{
 		SetRect(&m_Anim->m_Rect, static_cast<int>(m_Size.x / m_LastFrame)* (m_CurrentFrame - 1), 0,
 			static_cast<int>(m_Size.x / m_LastFrame)* m_CurrentFrame, static_cast<int>(m_Size.y));
+		m_Rect = m_Anim->m_Rect;
 
 		m_Size.x /= m_LastFrame;
 
