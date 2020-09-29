@@ -35,11 +35,9 @@ void Arabian::ChangeImage(std::wstring body, int first, int last)
 	m_Body->Init(0.1f, true, BigImage);
 	m_Body->AddContinueFrame(body, first, last, COLORKEY_PINK);
 	m_Body->Render();
+	m_Body->SetScale(2, 2);
 
-	if (m_Dire == RIGHT)
-		m_Body->SetScale(-2.f, 2.f);
-	else if (m_Dire == LEFT)
-		m_Body->SetScale(2.f, 2.f);
+	SetImagePos();
 }
 
 void Arabian::Gravity()
@@ -69,15 +67,16 @@ void Arabian::Gravity()
 
 void Arabian::SetImagePos()
 {
-	m_Body->SetPosition(m_Position.x + 130, m_Position.y - m_Body->m_Size.y / 2);
+	m_Body->SetPosition(m_Position.x - m_Body->m_Size.x + m_Size.x / 2, m_Position.y - m_Body->m_Size.y + m_Size.y / 2);
 	m_Sight->m_Position.x = m_Position.x - m_Sight->m_Size.x / 2 + 30;
 	m_Sight->m_Position.y = m_Position.y - m_Sight->m_Size.y / 2;
 }
 
 void Arabian::Move(int Dire)
 {     
-	if (Dire == LEFT)
+	if (Dire == RIGHT)
 	{
+		m_Dire = LEFT;
 		int lpos = (int)((m_Position.y) + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)((m_Position.x + 1) + m_Size.x / 2);
 		D3DXCOLOR lcolor = Game::GetInst()->GetMapColor(lpos);
 
@@ -87,8 +86,9 @@ void Arabian::Move(int Dire)
 			m_Position.y -= m_Speed / 2 * dt;
 		}
 	}
-	else if (Dire == RIGHT)
+	else if (Dire == LEFT)
 	{
+		m_Dire = RIGHT;
 		int rpos = (int)((m_Position.y) + m_Size.y) * Game::GetInst()->GetCollisionMapRect().Pitch / 4 + (int)((m_Position.x + 1) + m_Size.x / 2);
 		D3DXCOLOR rcolor = Game::GetInst()->GetMapColor(rpos);
 
@@ -124,8 +124,6 @@ void Arabian::Update(float deltaTime, float Time)
 
 void Arabian::Render()
 {
-	m_Arabian->m_Rect = m_Body->m_Rect;
-	m_Collision = m_Arabian->m_Rect;
 	if(m_Body)
 		m_Body->Render();
 	m_Sight->Render();

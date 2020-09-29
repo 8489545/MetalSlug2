@@ -18,10 +18,15 @@ void ArabianStateRun::Init(Arabian* arabian)
 		arabian->ChangeImage(L"Painting/Enemy/Arabian/Left/Run.bmp", 0, 12);
 	else if(arabian->m_Dire == RIGHT)
 		arabian->ChangeImage(L"Painting/Enemy/Arabian/Right/Run.bmp", 0, 12);
+
+	Dire = arabian->m_Dire;
 }
 
 void ArabianStateRun::Update(Arabian* arabian)
 {
+	if (Dire != arabian->m_Dire)
+		Init(arabian);
+
 	for (auto& iter : ObjMgr->m_Objects)
 	{
 		RECT rc;
@@ -29,14 +34,12 @@ void ArabianStateRun::Update(Arabian* arabian)
 		{
 			if (IntersectRect(&rc, &iter->m_Collision, &arabian->m_Sight->m_Collision))
 			{
-				if (iter->m_Position.x < (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
+				if (iter->m_Position.x > (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
 				{
-					arabian->m_Dire = LEFT;
 					arabian->Move(LEFT);
 				}
-				else if (iter->m_Position.x > (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
+				else if (iter->m_Position.x < (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
 				{
-					arabian->m_Dire = RIGHT;
 					arabian->Move(RIGHT);
 				}
 			}
