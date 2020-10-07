@@ -4,10 +4,12 @@
 #include"ArabianStateIdle.h"
 #include"ArabianStateRun.h"
 #include"ArabianStatePrepare.h"
+#include"ArabianStateAttack.h"
 
 ArabianStateIdle* ArabianState::m_ArabianStateIdle = new ArabianStateIdle();
 ArabianStateRun* ArabianState::m_ArabianStateRun = new ArabianStateRun();
-ArabianStatePrepare* ArabianState::m_ArabianStatePrepare = new ArabianStatePrepare;
+ArabianStatePrepare* ArabianState::m_ArabianStatePrepare = new ArabianStatePrepare();
+ArabianStateAttack* ArabianState::m_ArabianStateAttack = new ArabianStateAttack();
 
 ArabianState::ArabianState()
 {

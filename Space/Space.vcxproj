@@ -23,6 +23,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Arabian.cpp" />
     <ClCompile Include="ArabianState.cpp" />
+    <ClCompile Include="ArabianStateAttack.cpp" />
     <ClCompile Include="ArabianStateIdle.cpp" />
     <ClCompile Include="ArabianStatePrepare.cpp" />
     <ClCompile Include="ArabianStateRun.cpp" />
@@ -78,6 +79,7 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Arabian.h" />
     <ClInclude Include="ArabianState.h" />
+    <ClInclude Include="ArabianStateAttack.h" />
     <ClInclude Include="ArabianStateIdle.h" />
     <ClInclude Include="ArabianStatePrepare.h" />
     <ClInclude Include="ArabianStateRun.h" />
