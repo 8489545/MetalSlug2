@@ -14,6 +14,7 @@ public:
 	float m_vY;
 
 	float m_Speed;
+	float m_ThrowCoolDown;
 
 	int m_Dire;
 

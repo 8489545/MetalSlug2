@@ -27,6 +27,7 @@
     <ClCompile Include="ArabianStateIdle.cpp" />
     <ClCompile Include="ArabianStatePrepare.cpp" />
     <ClCompile Include="ArabianStateRun.cpp" />
+    <ClCompile Include="ArabianStateThrow.cpp" />
     <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -83,6 +84,7 @@
     <ClInclude Include="ArabianStateIdle.h" />
     <ClInclude Include="ArabianStatePrepare.h" />
     <ClInclude Include="ArabianStateRun.h" />
+    <ClInclude Include="ArabianStateThrow.h" />
     <ClInclude Include="Bomb.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />

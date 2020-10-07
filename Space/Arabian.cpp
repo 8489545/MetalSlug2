@@ -20,6 +20,7 @@ Arabian::Arabian(Vec2 Pos)
 	m_Body->m_Position = Pos;
 
 	m_Speed = 150.f;
+	m_ThrowCoolDown = 0.f;
 }
 
 Arabian::~Arabian()
