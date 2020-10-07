@@ -33,7 +33,6 @@ void ArabianStateRun::Update(Arabian* arabian)
 		RECT rc;
 		if (iter->m_Tag == "Player")
 		{
-			printf("%d %d\n", arabian->m_Collision.right - arabian->m_Collision.left,arabian->m_Collision.bottom - arabian->m_Collision.top);
 			if (IntersectRect(&rc, &iter->m_Collision, &arabian->m_Collision))
 			{
 				arabian->m_State = m_ArabianStatePrepare;

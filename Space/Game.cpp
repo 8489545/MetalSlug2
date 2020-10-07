@@ -16,6 +16,7 @@ void Game::Init()
 {
 	m_isCreateUI = false;
 	m_DebugMode = false;
+	m_isCreatePlayer = false;
 }
 
 void Game::Release()
@@ -36,6 +37,19 @@ void Game::CreateUI()
 		UI::GetInst()->Init();
 		m_isCreateUI = true;
 	}
+}
+
+void Game::CreatePlayer()
+{
+	ObjMgr->AddObject(new Player(Vec2(0, 0)), "Player");
+	m_isCreatePlayer = true;
+}
+
+void Game::PlayerDeath()
+{
+	m_isCreatePlayer = false;
+	ObjMgr->DeleteObject("Player");
+	ObjMgr->DeleteObject("pBullet");
 }
 
 void Game::Update()

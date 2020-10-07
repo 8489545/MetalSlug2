@@ -12,12 +12,16 @@ public:
 
 	bool m_isCreateUI;
 	bool m_DebugMode;
+	bool m_isCreatePlayer;
 
 	void Init();
 	void Release();
 	void CollisionMapInit(Sprite* cMap);
 
 	void CreateUI();
+
+	void CreatePlayer();
+	void PlayerDeath();
 
 	void Update();
 	void Render();
