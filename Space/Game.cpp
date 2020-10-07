@@ -16,8 +16,6 @@ void Game::Init()
 {
 	m_isCreateUI = false;
 	m_DebugMode = false;
-
-	printf("asdf");
 }
 
 void Game::Release()

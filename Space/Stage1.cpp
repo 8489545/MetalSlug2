@@ -20,7 +20,7 @@ void Stage1::Init()
 	Game::GetInst()->CollisionMapInit(m_CMap);
 
 	ObjMgr->AddObject(new Player(Vec2(0,0)),"Player");
-	ObjMgr->AddObject(new Arabian(Vec2(800 / 2,600 / 2)),"Enemy");
+	ObjMgr->AddObject(new Arabian(Vec2(1200,600 / 2)),"Enemy");
 }
 
 void Stage1::Release()

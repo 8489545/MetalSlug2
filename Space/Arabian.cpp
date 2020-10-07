@@ -128,6 +128,9 @@ void Arabian::Render()
 		m_Body->Render();
 	m_Sight->Render();
 	m_Arabian->Render();
+
+	SetRect(&m_Collision, m_Position.x, m_Position.y,
+		m_Position.x + m_Size.x, m_Position.y + m_Size.y);
 }
 
 void Arabian::OnCollision(Object* other)

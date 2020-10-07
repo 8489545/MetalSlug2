@@ -3,6 +3,7 @@
 #include "ArabianStateRun.h"
 #include"Arabian.h"
 #include"ArabianStateIdle.h"
+#include"ArabianStatePrepare.h"
 
 ArabianStateRun::ArabianStateRun()
 {
@@ -32,16 +33,24 @@ void ArabianStateRun::Update(Arabian* arabian)
 		RECT rc;
 		if (iter->m_Tag == "Player")
 		{
-			if (IntersectRect(&rc, &iter->m_Collision, &arabian->m_Sight->m_Collision))
+			printf("%d %d\n", arabian->m_Collision.right - arabian->m_Collision.left,arabian->m_Collision.bottom - arabian->m_Collision.top);
+			if (IntersectRect(&rc, &iter->m_Collision, &arabian->m_Collision))
 			{
-				if (iter->m_Position.x > (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
+				arabian->m_State = m_ArabianStatePrepare;
+				arabian->m_State->Init(arabian);
+				return;
+			}
+			else if (IntersectRect(&rc, &iter->m_Collision, &arabian->m_Sight->m_Collision))
+			{
+				if (iter->m_Position.x + iter->m_Size.x / 2 > (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
 				{
 					arabian->Move(LEFT);
 				}
-				else if (iter->m_Position.x < (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
+				else if (iter->m_Position.x + iter->m_Size.x / 2 < (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
 				{
 					arabian->Move(RIGHT);
 				}
+				
 			}
 			else
 			{
