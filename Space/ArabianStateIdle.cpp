@@ -3,6 +3,7 @@
 #include "ArabianStateIdle.h"
 #include"Arabian.h"
 #include"ArabianStateRun.h"
+#include"ArabianStateThrow.h"
 
 ArabianStateIdle::ArabianStateIdle()
 {
@@ -29,8 +30,16 @@ void ArabianStateIdle::Update(Arabian* arabian)
 		{
 			if (IntersectRect(&rc,&iter->m_Collision,&arabian->m_Sight->m_Collision))
 			{
-				arabian->m_State =  m_ArabianStateRun;
-				arabian->m_State->Init(arabian);
+				if (arabian->m_ThrowCoolDown <= 0.f)
+				{
+					arabian->m_State = m_ArabianStateThrow;
+					arabian->m_State->Init(arabian);
+				}
+				else
+				{
+					arabian->m_State = m_ArabianStateRun;
+					arabian->m_State->Init(arabian);
+				}
 			}
 		}
 	}

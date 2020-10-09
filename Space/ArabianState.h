@@ -5,6 +5,7 @@ class ArabianStateIdle;
 class ArabianStateRun;
 class ArabianStatePrepare;
 class ArabianStateAttack;
+class ArabianStateThrow;
 
 class ArabianState
 {
@@ -22,5 +23,6 @@ public:
 	static ArabianStateRun* m_ArabianStateRun;
 	static ArabianStatePrepare* m_ArabianStatePrepare;
 	static ArabianStateAttack* m_ArabianStateAttack;
+	static ArabianStateThrow* m_ArabianStateThrow;
 };
 

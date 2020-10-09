@@ -114,6 +114,9 @@ void Arabian::Update(float deltaTime, float Time)
 		m_Sight->m_Visible = true;
 	}
 
+	if (m_ThrowCoolDown > 0.f)
+		m_ThrowCoolDown -= dt;
+
 	Gravity();
 	SetImagePos();
 

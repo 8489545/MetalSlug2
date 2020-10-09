@@ -3,6 +3,7 @@
 #include "ArabianStatePrepare.h"
 #include"Arabian.h"
 #include"ArabianStateAttack.h"
+#include"ArabianStateThrow.h"
 
 ArabianStatePrepare::ArabianStatePrepare()
 {
@@ -26,7 +27,15 @@ void ArabianStatePrepare::Update(Arabian* arabian)
 {
 	if (arabian->m_Body->m_CurrentFrame == 4)
 	{
-		arabian->m_State = m_ArabianStateAttack;
-		arabian->m_State->Init(arabian);
+		if (arabian->m_ThrowCoolDown <= 0.f)
+		{
+			arabian->m_State = m_ArabianStateThrow;
+			arabian->m_State->Init(arabian);
+		}
+		else
+		{
+			arabian->m_State = m_ArabianStateAttack;
+			arabian->m_State->Init(arabian);
+		}
 	}
 }

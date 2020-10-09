@@ -198,6 +198,9 @@
     <ClCompile Include="ArabianStateThrow.cpp">
       <Filter>Game\Object\State\EnemyState</Filter>
     </ClCompile>
+    <ClCompile Include="Knife.cpp">
+      <Filter>Game\Object\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -358,6 +361,9 @@
     </ClInclude>
     <ClInclude Include="ArabianStateThrow.h">
       <Filter>Game\Object\State\EnemyState</Filter>
+    </ClInclude>
+    <ClInclude Include="Knife.h">
+      <Filter>Game\Object\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
