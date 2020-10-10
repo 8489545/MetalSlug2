@@ -3,6 +3,7 @@
 #include "ArabianStateThrow.h"
 #include"Arabian.h"
 #include"ArabianStateIdle.h"
+#include"Knife.h"
 
 ArabianStateThrow::ArabianStateThrow()
 {
@@ -33,11 +34,17 @@ void ArabianStateThrow::Init(Arabian* arabian)
 	else if (arabian->m_Dire == RIGHT)
 		arabian->ChangeImage(L"Painting/Enemy/Arabian/Right/Throw.bmp", 0, 19);
 
-	arabian->m_ThrowCoolDown = 3.f;
+	arabian->m_ThrowCoolDown = 5.f;
+	m_isThrow = false;
 }
 
 void ArabianStateThrow::Update(Arabian* arabian)
 {
+	if (arabian->m_Body->m_CurrentFrame == 7 && !m_isThrow)
+	{
+		ObjMgr->AddObject(new Knife(arabian->m_Position, arabian->m_Dire, 5, -60),"Knife");
+		m_isThrow = true;
+	}
 	if (arabian->m_Body->m_CurrentFrame == 18)
 	{
 		arabian->m_State = m_ArabianStateIdle;

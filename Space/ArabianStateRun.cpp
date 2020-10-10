@@ -4,6 +4,7 @@
 #include"Arabian.h"
 #include"ArabianStateIdle.h"
 #include"ArabianStatePrepare.h"
+#include"ArabianStateThrow.h"
 
 ArabianStateRun::ArabianStateRun()
 {
@@ -41,6 +42,11 @@ void ArabianStateRun::Update(Arabian* arabian)
 			}
 			else if (IntersectRect(&rc, &iter->m_Collision, &arabian->m_Sight->m_Collision))
 			{
+				if (arabian->m_ThrowCoolDown <= 0.f)
+				{
+					arabian->m_State = m_ArabianStateThrow;
+					arabian->m_State->Init(arabian);
+				}
 				if (iter->m_Position.x + iter->m_Size.x / 2 > (arabian->m_Sight->m_Collision.left + arabian->m_Sight->m_Collision.right) / 2)
 				{
 					arabian->Move(LEFT);

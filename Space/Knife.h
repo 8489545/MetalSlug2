@@ -10,6 +10,7 @@ public:
 	float m_Power;
 	float m_Angle;
 	float m_Time;
+	float m_LiveTime;
 	int m_Dire;
 
 	void Update(float delatTime, float Time);
