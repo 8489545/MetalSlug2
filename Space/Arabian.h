@@ -17,6 +17,7 @@ public:
 	float m_ThrowCoolDown;
 
 	int m_Dire;
+	bool m_Death;
 
 	ArabianState* m_State;
 

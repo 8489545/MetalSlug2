@@ -45,3 +45,8 @@ void Bullet::Render()
 {
 	m_Bullet->Render();
 }
+
+void Bullet::OnCollision(Object* other)
+{
+	SetDestroy(true);
+}

@@ -28,8 +28,7 @@ void Camera::Follow(Object* obj)
 {
 	if (obj != nullptr)
 	{
-		if(m_Position.x > m_MinMapSize.x && m_Position.x < m_MaxMapSize.x - App::GetInst()->m_Width)
-			m_Position.x = obj->m_Position.x - App::GetInst()->m_Width / 2;
+		m_Position.x = obj->m_Position.x - App::GetInst()->m_Width / 2;
 		if (m_Position.y > m_MinMapSize.y && m_Position.y < m_MaxMapSize.y - App::GetInst()->m_Height)
 			m_Position.y = obj->m_Position.y - App::GetInst()->m_Height / 2;
 	}

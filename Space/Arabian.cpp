@@ -21,6 +21,7 @@ Arabian::Arabian(Vec2 Pos)
 
 	m_Speed = 150.f;
 	m_ThrowCoolDown = 0.f;
+	m_Death = false;
 }
 
 Arabian::~Arabian()
@@ -142,5 +143,9 @@ void Arabian::Render()
 
 void Arabian::OnCollision(Object* other)
 {
-	m_State->Death(this);
+	if (!m_Death)
+	{
+		m_State->Death(this);
+		m_Death = true;
+	}
 }
