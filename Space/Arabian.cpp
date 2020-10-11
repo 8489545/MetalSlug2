@@ -117,6 +117,9 @@ void Arabian::Update(float deltaTime, float Time)
 	if (m_ThrowCoolDown > 0.f)
 		m_ThrowCoolDown -= dt;
 
+	ObjMgr->CollisionCheak(this, "pBullet");
+	ObjMgr->CollisionCheak(this, "Bomb");
+
 	Gravity();
 	SetImagePos();
 
@@ -139,4 +142,5 @@ void Arabian::Render()
 
 void Arabian::OnCollision(Object* other)
 {
+	m_State->Death(this);
 }

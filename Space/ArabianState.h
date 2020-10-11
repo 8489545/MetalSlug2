@@ -6,6 +6,7 @@ class ArabianStateRun;
 class ArabianStatePrepare;
 class ArabianStateAttack;
 class ArabianStateThrow;
+class ArabianStateDeath;
 
 class ArabianState
 {
@@ -15,6 +16,7 @@ public:
 
 	
 	void SetIdle(Arabian* arabian);
+	void Death(Arabian* arabian);
 
 	virtual void Init(Arabian* arabian) = 0;
 	virtual void Update(Arabian* arabian) = 0;
@@ -24,5 +26,6 @@ public:
 	static ArabianStatePrepare* m_ArabianStatePrepare;
 	static ArabianStateAttack* m_ArabianStateAttack;
 	static ArabianStateThrow* m_ArabianStateThrow;
+	static ArabianStateDeath* m_ArabianStateDeath;
 };
 
